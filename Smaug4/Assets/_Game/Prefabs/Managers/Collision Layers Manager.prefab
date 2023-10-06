@@ -52,3 +52,5 @@ MonoBehaviour:
     _layerIndex: 8
   Ball:
     _layerIndex: 7
+  Treasure:
+    _layerIndex: 9
