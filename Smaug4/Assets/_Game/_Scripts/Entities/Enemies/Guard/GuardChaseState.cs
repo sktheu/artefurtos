@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class GuardChaseState : GuardState
 {
-    public override void Execute()
-    { 
+    #region Variáveis Globais
+    private Transform _playerTransform;
+    #endregion
 
+    #region Funções Próprias
+    public GuardChaseState(Transform playerTransform)
+    {
+        this._playerTransform = playerTransform;
     }
+
+    public override void Execute()
+    {
+        base.Execute();
+        base.StateMachine.Agent.SetDestination(_playerTransform.position);
+    }
+
+    #endregion
 }

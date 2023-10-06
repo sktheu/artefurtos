@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,16 +13,17 @@ public class GuardStateMachine
     #endregion
 
     #region Funções Próprias
-    public void ChangeState(GuardState newState, float moveSpeed)
+    public void ChangeState(GuardState newState, float moveSpeed, float acceleration)
     {
         _currentState = newState;
         _currentState.StateMachine = this;
         _currentState.MoveSpeed = moveSpeed;
+        _currentState.Acceleration = acceleration;
     }
 
-    public bool CompareState(GuardState targetState)
+    public bool CompareState(Type targetState)
     {
-        if (_currentState.GetName() == targetState.GetName())
+        if (_currentState.GetType() == targetState)
             return true;
 
         return false;

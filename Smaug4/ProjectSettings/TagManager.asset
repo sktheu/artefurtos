@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Trigger Laser Flip
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Ball
+  - Guards
   - 
   - 
   - 
