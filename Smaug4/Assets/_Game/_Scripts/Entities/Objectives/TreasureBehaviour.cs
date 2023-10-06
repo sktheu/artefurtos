@@ -26,6 +26,7 @@ public class TreasureBehaviour : MonoBehaviour
     // Coleta:
     private bool _hasCollided = false;
     private static Transform _playerTransform;
+    [SerializeField] private PlayerObjective _playerObjective;
     #endregion
 
     #region Funções Unity
@@ -35,6 +36,7 @@ public class TreasureBehaviour : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerObjective = _playerTransform.gameObject.GetComponent<PlayerObjective>();
     } 
 
     private void Start()
@@ -56,6 +58,7 @@ public class TreasureBehaviour : MonoBehaviour
     {
         if (col.gameObject.layer == _collisionLayersManager.Player.Index)
         {
+            _playerObjective.AddTreasure(GetComponent<SpriteRenderer>().sprite);
             _canMoveY = false;
             _hasCollided = true;
             transform.localScale = transform.localScale * 0.5f;

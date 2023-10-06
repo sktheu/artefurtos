@@ -9,5 +9,5 @@ public class CollisionLayersManager : MonoBehaviour
     public SingleUnityLayer Player;
     public SingleUnityLayer Guards;
     public SingleUnityLayer Ball;
-    public SingleUnityLayer Treasure;
+    public SingleUnityLayer Backpack;
 }

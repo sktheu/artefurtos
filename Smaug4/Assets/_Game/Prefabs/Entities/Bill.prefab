@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6367914883564913106}
   - component: {fileID: 4117255386896689874}
   - component: {fileID: 7530834427926650847}
-  - component: {fileID: 5032717152837091646}
+  - component: {fileID: 8232001405538912447}
   m_Layer: 6
   m_Name: Bill
   m_TagString: Player
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   acceleration: 5
---- !u!114 &5032717152837091646
+--- !u!114 &8232001405538912447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,6 +195,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4936902345877620038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22dbc98f8f77bab47b0a9306bc0b103b, type: 3}
+  m_Script: {fileID: 11500000, guid: 748d51275f6c638409f7a2776bcfc41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
