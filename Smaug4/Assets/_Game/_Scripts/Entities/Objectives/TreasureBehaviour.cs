@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class TreasureBehaviour : MonoBehaviour
 {
-    [Header("Configurações:")] 
+    #region Variáveis Globais
+    [Header("Configurações:")]
     [SerializeField] private float verticalSpeed;
-    [SerializeField] private float collisionSpeed;
+    [SerializeField] private float chaseSpeed;
     [SerializeField] private float verticalDirInterval;
 
     [Header("Sprites:")] 
     [SerializeField] private Sprite[] sprites;
+
+    // Referências:
+    private CollisionLayersManager _collisionLayersManager;
 
     // Componentes:
     private Rigidbody2D _rb;
@@ -19,7 +23,19 @@ public class TreasureBehaviour : MonoBehaviour
     private float _dirY = 1f;
     private bool _canMoveY = true;
 
-    private void Awake() => GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+    // Coleta:
+    private bool _hasCollided = false;
+    private static Transform _playerTransform;
+    #endregion
+
+    #region Funções Unity
+
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+        _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+    } 
 
     private void Start()
     {
@@ -31,8 +47,24 @@ public class TreasureBehaviour : MonoBehaviour
     {
         if (_canMoveY)
             ApplyVerticalMove();
+
+        if (_hasCollided)
+            ChasePlayer();
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.layer == _collisionLayersManager.Player.Index)
+        {
+            _canMoveY = false;
+            _hasCollided = true;
+            transform.localScale = transform.localScale * 0.5f;
+            Destroy(gameObject, 0.2f);
+        }
+    }
+    #endregion
+
+    #region Funções Próprias
     private void ApplyVerticalMove() => _rb.velocity = Vector2.up * _dirY * verticalSpeed;
 
     private IEnumerator FlipDirY(float t)
@@ -44,4 +76,12 @@ public class TreasureBehaviour : MonoBehaviour
             StartCoroutine(FlipDirY(verticalDirInterval));
         }
     }
+
+    private void ChasePlayer()
+    {
+        var dir = new Vector2(_playerTransform.transform.position.x - transform.position.x,
+            _playerTransform.position.y - transform.position.y).normalized;
+        _rb.velocity = dir * chaseSpeed;
+    }
+    #endregion
 }
