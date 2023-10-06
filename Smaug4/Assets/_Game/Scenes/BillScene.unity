@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 1488892603}
   - component: {fileID: 1488892605}
   - component: {fileID: 1488892606}
+  - component: {fileID: 1488892607}
   m_Layer: 0
   m_Name: Treasure
   m_TagString: Untagged
@@ -471,6 +472,30 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1488892607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488892602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3374aeb316d158438d23fb9c66ff792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalSpeed: 0.8
+  collisionSpeed: 0
+  verticalDirInterval: 0.28
+  sprites:
+  - {fileID: 1410338100, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: 1263302848, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: 1519679395, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: -78335378, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: -1207512606, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: 1092198216, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: -1296781678, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
+  - {fileID: 649691542, guid: 5cea75cc869fb4e4a84795fe97b9bed1, type: 3}
 --- !u!1 &1811050242
 GameObject:
   m_ObjectHideFlags: 0
