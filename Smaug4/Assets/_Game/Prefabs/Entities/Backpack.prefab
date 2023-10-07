@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3304317900900356934}
   - component: {fileID: 7623997471681374179}
   - component: {fileID: 8933807189768701204}
+  - component: {fileID: 8167630893798706164}
   m_Layer: 9
   m_Name: Backpack
   m_TagString: Untagged
@@ -179,3 +180,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6348863, y: 0.21195997}
   m_EdgeRadius: 0
+--- !u!95 &8167630893798706164
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451525893741599890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfa7cc10958515c4eb9b1fb0b3f2d75d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
