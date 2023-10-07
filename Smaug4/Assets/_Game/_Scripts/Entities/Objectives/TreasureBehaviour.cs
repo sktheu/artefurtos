@@ -56,7 +56,7 @@ public class TreasureBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == _collisionLayersManager.Player.Index)
+        if (!_hasCollided && col.gameObject.layer == _collisionLayersManager.Player.Index)
         {
             _playerObjective.AddTreasure(GetComponent<SpriteRenderer>().sprite);
             _canMoveY = false;

@@ -764,13 +764,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backpack
       objectReference: {fileID: 0}
-    - target: {fileID: 1451525893741599890, guid: a0cb8d318c190e540a4a9d053fa2ae9c, type: 3}
-      propertyPath: m_TagString
-      value: Backpack
-      objectReference: {fileID: 0}
     - target: {fileID: 7590384727339011724, guid: a0cb8d318c190e540a4a9d053fa2ae9c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.59
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 7590384727339011724, guid: a0cb8d318c190e540a4a9d053fa2ae9c, type: 3}
       propertyPath: m_LocalPosition.y

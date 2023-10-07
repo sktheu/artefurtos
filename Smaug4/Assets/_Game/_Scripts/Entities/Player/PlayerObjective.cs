@@ -12,12 +12,13 @@ public class PlayerObjective : MonoBehaviour
     private CollisionLayersManager _collisionLayersManager;
 
     // Tesouros coletados:
-    private List<Sprite> _currentTreasureSprites = new List<Sprite>();
+    [SerializeField] private List<Sprite> _currentTreasureSprites = new List<Sprite>();
     private int _treasuresLeft;
 
     // Mochila:
-    private static Animator _backpackAnimator;
-    private static TextMeshPro _backpackText;
+    private Animator _backpackAnimator;
+    private TextMeshProUGUI _backpackText;
+    private bool _canDeposit = true;
     #endregion
 
     #region Funções Unity
@@ -26,12 +27,20 @@ public class PlayerObjective : MonoBehaviour
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
         _treasuresLeft = GameObject.FindObjectsOfType<TreasureBehaviour>().Length;
         _backpackAnimator = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Animator>();
+        _backpackText = _backpackAnimator.gameObject.transform.Find("Canvas").gameObject.transform.Find("TxtTreasuresLeft").gameObject.GetComponent<TextMeshProUGUI>();
+        _backpackText.text = _treasuresLeft.ToString();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
-        if (_currentTreasureSprites.Count > 0 && col.gameObject.layer == _collisionLayersManager.Backpack.Index)
+        if (_currentTreasureSprites.Count > 0 && col.gameObject.layer == _collisionLayersManager.Backpack.Index &&
+            _canDeposit)
+        {
+            _canDeposit = false;
             RemoveTreasure();
+            StartCoroutine(SetDepositInterval(0.5f));
+        }
+            
     }
     #endregion
 
@@ -42,10 +51,22 @@ public class PlayerObjective : MonoBehaviour
     {
         _currentTreasureSprites.RemoveAt(0);
         _treasuresLeft--;
-
         _backpackAnimator.Play("BackpackDeposit");
+        _backpackText.text = _treasuresLeft.ToString();
+        
         if (_treasuresLeft <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }   
+        {
+            _treasuresLeft = 0;
+            Invoke("NextScene", 0.75f);
+        }
+    }
+
+    private IEnumerator SetDepositInterval(float t)
+    {
+        yield return new WaitForSeconds(t);
+        _canDeposit = true;
+    }
+
+    private void NextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     #endregion
 }
