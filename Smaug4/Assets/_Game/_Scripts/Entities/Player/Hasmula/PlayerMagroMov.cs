@@ -66,6 +66,8 @@ public class PlayerMagroMov : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_playerGameOver.GameEnded) return;
+
         if (CanMove)
         {
             ApplyMove();

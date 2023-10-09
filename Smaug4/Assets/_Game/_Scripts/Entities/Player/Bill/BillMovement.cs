@@ -34,7 +34,11 @@ public class BillMovement : MonoBehaviour
         Animate();
     }
 
-    private void FixedUpdate() => ApplyMove();
+    private void FixedUpdate()
+    {
+        if (!_playerGameOver.GameEnded) ApplyMove();
+    }
+
     #endregion
 
     #region Funções Próprias

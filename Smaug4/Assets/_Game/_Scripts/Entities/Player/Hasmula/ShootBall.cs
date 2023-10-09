@@ -20,7 +20,7 @@ public class ShootBall : MonoBehaviour
     private PlayerMagroMov _playerMove;
     private Animator _animator;
     private Rigidbody2D _rb;
-    private LineRenderer _lineRenderer;
+    private PlayerGameOver _playerGameOver;
 
     // Aiming:
     [HideInInspector] public bool IsAiming;
@@ -42,13 +42,19 @@ public class ShootBall : MonoBehaviour
         _playerMove = GetComponent<PlayerMagroMov>();
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-        _lineRenderer = GetComponent<LineRenderer>();
+        _playerGameOver = GetComponent<PlayerGameOver>();
 
         _defaultAnimController = _animator.runtimeAnimatorController;
     }
 
     private void Update()
     {
+        if (_playerGameOver.GameEnded)
+        {
+            _animator.runtimeAnimatorController = _defaultAnimController;
+            return;
+        }
+
         if (IsAiming)
         {
             SetAimDir();

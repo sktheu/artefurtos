@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4117255386896689874}
   - component: {fileID: 7530834427926650847}
   - component: {fileID: 8232001405538912447}
+  - component: {fileID: 918506624812090157}
   m_Layer: 6
   m_Name: Bill
   m_TagString: Player
@@ -199,3 +200,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentTreasureSprites: []
+--- !u!114 &918506624812090157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936902345877620038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfd6f01b2a7eba48bdb214f3d09c9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEnded: 0

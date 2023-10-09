@@ -1731,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bill
       objectReference: {fileID: 0}
+    - target: {fileID: 4936902345877620038, guid: 98e3f9a97190d7647965924311562a83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7165329796555297198, guid: 98e3f9a97190d7647965924311562a83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.05
