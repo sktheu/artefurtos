@@ -49,7 +49,16 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu 1");
+        //Time.timeScale = 1f;
+        //SceneManager.LoadScene("Menu 1");
+        Debug.Log("Foi pro menu principal");
     }
+
+    public void Restart()
+    {
+        //TROCAR PRO SISTEMA DO DUCA DEPOIS
+        int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(cenaAtual);
+    }
+
 }
