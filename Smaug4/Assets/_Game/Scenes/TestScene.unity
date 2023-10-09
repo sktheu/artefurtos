@@ -886,6 +886,7 @@ MonoBehaviour:
   canvasMenu: {fileID: 1063175686}
   pauseMenu: {fileID: 913497367}
   optionsMenuUI: {fileID: 1640145148}
+  staminaCanvas: {fileID: 582767060}
 --- !u!1 &800955170
 GameObject:
   m_ObjectHideFlags: 0

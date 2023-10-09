@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject optionsMenuUI;
 
+    public GameObject staminaCanvas;
+
     public static string menuName;
 
     private void Update()
@@ -34,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     {
         canvasMenu.SetActive(false);
         optionsMenuUI.SetActive(false);
+        staminaCanvas.SetActive(true);
         Time.timeScale = 1f;
         gamePaused = false;
         Cursor.visible = false;
@@ -44,6 +47,7 @@ public class PauseMenu : MonoBehaviour
     {
         canvasMenu.SetActive(true);
         pauseMenu.SetActive(true);
+        staminaCanvas.SetActive(false);
         Time.timeScale = 0f;
         gamePaused = true;
         Cursor.visible = true;
