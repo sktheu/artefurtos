@@ -469,7 +469,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -539,7 +539,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -898,16 +898,16 @@ Tilemap:
     m_Data: {fileID: 749779605, guid: c266c615e69a3eb41804f06af7297cbf, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 883885878, guid: d399816b9301f9a4d9e27e851ed5eabd, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -964941134, guid: d399816b9301f9a4d9e27e851ed5eabd, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 12
     m_Data: {fileID: 50357173, guid: d399816b9301f9a4d9e27e851ed5eabd, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1008835834, guid: d399816b9301f9a4d9e27e851ed5eabd, type: 3}
+    m_Data: {fileID: -964941134, guid: d399816b9301f9a4d9e27e851ed5eabd, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1427755216, guid: c266c615e69a3eb41804f06af7297cbf, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1008835834, guid: d399816b9301f9a4d9e27e851ed5eabd, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1611204800, guid: c266c615e69a3eb41804f06af7297cbf, type: 3}
   - m_RefCount: 11
@@ -1605,7 +1605,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2847a5701cab167469903896ea49aad4, type: 3}
---- !u!1001 &4060529958441640265
+--- !u!1001 &5705273651287057751
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1613,47 +1613,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4623624752316981790, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 401741845349286932, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_Name
-      value: Treasure
+      value: Level Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8040039459374032216, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+    - target: {fileID: 5286858340607460103, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -1661,7 +1661,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 898ea66096a674347aeaba8520ebb252, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 785a33d2468241444b5aa9165b0a6e20, type: 3}
 --- !u!1001 &5937062912019304575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1731,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bill
       objectReference: {fileID: 0}
+    - target: {fileID: 4936902345877620038, guid: 98e3f9a97190d7647965924311562a83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7165329796555297198, guid: 98e3f9a97190d7647965924311562a83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.05
@@ -1788,7 +1792,7 @@ SceneRoots:
   - {fileID: 1811050244}
   - {fileID: 1464192098}
   - {fileID: 88388962}
-  - {fileID: 4060529958441640265}
   - {fileID: 2032122992}
   - {fileID: 5937062912019304575}
   - {fileID: 2022210631}
+  - {fileID: 5705273651287057751}

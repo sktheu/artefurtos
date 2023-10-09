@@ -10,12 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1590628600351187455}
   - component: {fileID: 2706993507932180233}
-  - component: {fileID: 6875070559774980020}
-  - component: {fileID: 3890542716432565261}
-  - component: {fileID: 4777376288767456774}
   - component: {fileID: 1162921194940791439}
   - component: {fileID: 8209861886747032158}
   - component: {fileID: 7676938552688745132}
+  - component: {fileID: 6875070559774980020}
+  - component: {fileID: 3890542716432565261}
+  - component: {fileID: 4777376288767456774}
+  - component: {fileID: 91161995216302062}
+  - component: {fileID: 6450365507265133730}
   m_Layer: 6
   m_Name: Hasmula
   m_TagString: Player
@@ -90,64 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6875070559774980020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422754877255105727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2e2ca7431dc7b4c918bf95f3d7e1b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 10
-  acceleration: 5
-  walkSpeed: 5
-  runSpeed: 20
-  isWalking: 1
-  CanMove: 1
-  _staminaSystem: {fileID: 0}
-  _anim: {fileID: 8209861886747032158}
---- !u!114 &3890542716432565261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422754877255105727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fbe18f35f335d34183d0bbe53afd66c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStamina: 100
-  maxStamina: 100
-  hasStamina: 1
-  isSprinting: 0
-  drain: 50
-  regen: 10
-  staminaProgressUI: {fileID: 0}
-  sliderCanvasGroup: {fileID: 0}
-  _playerMagroMov: {fileID: 0}
---- !u!114 &4777376288767456774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422754877255105727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1825d07125459a744aa2c3afbe8ff015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballInitialCount: 3
-  ballPrefab: {fileID: 557333822908284426, guid: c2cbbc1bbebf6134c9ed830207fba9a0, type: 3}
-  shootAnimController: {fileID: 9100000, guid: c543631f2ca4baa4eba2e9686b390157, type: 2}
-  aimTexture: {fileID: 2800000, guid: 620453a7d0b815d4d8ba52b7d0d43358, type: 3}
-  IsAiming: 0
 --- !u!50 &1162921194940791439
 Rigidbody2D:
   serializedVersion: 4
@@ -231,3 +175,87 @@ CapsuleCollider2D:
   m_Offset: {x: -0.004250574, y: -0.09776361}
   m_Size: {x: 0.3284068, y: 0.6289399}
   m_Direction: 0
+--- !u!114 &6875070559774980020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422754877255105727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2e2ca7431dc7b4c918bf95f3d7e1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  acceleration: 5
+  walkSpeed: 5
+  runSpeed: 20
+  isWalking: 1
+  CanMove: 1
+  _staminaSystem: {fileID: 0}
+  _anim: {fileID: 8209861886747032158}
+--- !u!114 &3890542716432565261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422754877255105727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe18f35f335d34183d0bbe53afd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 100
+  maxStamina: 100
+  hasStamina: 1
+  isSprinting: 0
+  drain: 50
+  regen: 10
+  staminaProgressUI: {fileID: 0}
+  sliderCanvasGroup: {fileID: 0}
+  _playerMagroMov: {fileID: 0}
+--- !u!114 &4777376288767456774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422754877255105727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1825d07125459a744aa2c3afbe8ff015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballInitialCount: 3
+  ballPrefab: {fileID: 557333822908284426, guid: c2cbbc1bbebf6134c9ed830207fba9a0, type: 3}
+  shootAnimController: {fileID: 9100000, guid: c543631f2ca4baa4eba2e9686b390157, type: 2}
+  aimTexture: {fileID: 2800000, guid: 620453a7d0b815d4d8ba52b7d0d43358, type: 3}
+  IsAiming: 0
+--- !u!114 &91161995216302062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422754877255105727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfd6f01b2a7eba48bdb214f3d09c9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEnded: 0
+--- !u!114 &6450365507265133730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422754877255105727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748d51275f6c638409f7a2776bcfc41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentTreasureSprites: []

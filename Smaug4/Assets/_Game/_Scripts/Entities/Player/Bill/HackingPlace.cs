@@ -6,6 +6,7 @@ using UnityEngine;
 public class HackingPlace : MonoBehaviour
 {
     #region Variáveis Globais
+    // Inspector:
     [Header("Configurações:")] 
     [SerializeField] private float disableInterval;
     [SerializeField] private ChangeDevice device;
@@ -20,6 +21,8 @@ public class HackingPlace : MonoBehaviour
 
     // Componentes:
     private SpriteRenderer _spr;
+    private PlayerGameOver _playerGameOver;
+    private Animator _playerAnimator;
 
     // Referências:
     private static CollisionLayersManager _collisionLayersManager;
@@ -31,10 +34,17 @@ public class HackingPlace : MonoBehaviour
 
     private void Awake() => _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
 
-    private void Start() => _spr = GetComponent<SpriteRenderer>();
-    
+    private void Start()
+    {
+        _spr = GetComponent<SpriteRenderer>();
+        _playerGameOver = GameObject.FindObjectOfType<PlayerGameOver>();
+        _playerAnimator = _playerGameOver.gameObject.GetComponent<Animator>();
+    }
+
     private void Update()
     {
+        if (_playerGameOver.GameEnded) return;
+
         // Input
         if (Input.GetKeyDown(KeyCode.Space))
             keyPressed = true;
@@ -47,6 +57,11 @@ public class HackingPlace : MonoBehaviour
             _canDisable = false;
             DisableDevice();
             StartCoroutine(SetDisableInterval(disableInterval));
+
+            if (transform.position.x < _playerAnimator.gameObject.transform.position.x)
+                _playerAnimator.SetTrigger("HackingLeft");
+            else
+                _playerAnimator.SetTrigger("HackingRight");
         }
     }
 

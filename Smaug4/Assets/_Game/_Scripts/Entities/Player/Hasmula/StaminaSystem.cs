@@ -24,6 +24,7 @@ public class StaminaSystem : MonoBehaviour
     [HideInInspector] public PlayerMagroMov _playerMagroMov;
     private ShootBall _shootBall;
 
+    private PlayerGameOver _playerGameOver;
     #endregion
 
     #region Unity Functions
@@ -32,12 +33,13 @@ public class StaminaSystem : MonoBehaviour
     {
         _playerMagroMov = GetComponent<PlayerMagroMov>();
         _shootBall = GetComponent<ShootBall>();
+        _playerGameOver = GetComponent<PlayerGameOver>();
     }
 
     private void Update()
     {
-        // Não poderá correr caso estiver atirando
-        if (_shootBall.IsAiming) return;
+        // Não poderá correr caso estiver atirando ou o jogo ter finalizado
+        if (_shootBall.IsAiming || _playerGameOver.GameEnded) return;
 
         //Só pra ativar e desativar a variável isSprinting
         if (Input.GetKey(KeyCode.LeftShift) & 
