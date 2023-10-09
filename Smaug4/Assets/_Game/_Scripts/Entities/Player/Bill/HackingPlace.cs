@@ -20,6 +20,7 @@ public class HackingPlace : MonoBehaviour
 
     // Componentes:
     private SpriteRenderer _spr;
+    private PlayerGameOver _playerGameOver;
 
     // Referências:
     private static CollisionLayersManager _collisionLayersManager;
@@ -31,10 +32,16 @@ public class HackingPlace : MonoBehaviour
 
     private void Awake() => _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
 
-    private void Start() => _spr = GetComponent<SpriteRenderer>();
-    
+    private void Start()
+    {
+        _spr = GetComponent<SpriteRenderer>();
+        _playerGameOver = GameObject.FindObjectOfType<PlayerGameOver>();
+    }
+
     private void Update()
     {
+        if (_playerGameOver.GameEnded) return;
+
         // Input
         if (Input.GetKeyDown(KeyCode.Space))
             keyPressed = true;

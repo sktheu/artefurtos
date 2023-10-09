@@ -19,6 +19,7 @@ public class PlayerMagroMov : MonoBehaviour
     private Rigidbody2D _rb;
     [HideInInspector] public StaminaSystem _staminaSystem;
     public Animator _anim;
+    private PlayerGameOver _playerGameOver;
     
     // Movement
     private Vector2 _moveInput;
@@ -32,11 +33,13 @@ public class PlayerMagroMov : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _staminaSystem = GetComponent<StaminaSystem>();
-      
+        _playerGameOver = GetComponent<PlayerGameOver>();
     }
 
     private void Update()
     {
+        if (_playerGameOver.GameEnded) return;
+
         GetMoveInput();
         RunInput();
         

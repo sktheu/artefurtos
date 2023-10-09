@@ -12,6 +12,7 @@ public class BillMovement : MonoBehaviour
     // Componentes:
     private Rigidbody2D _rb;
     private Animator _anim;
+    private PlayerGameOver _playerGameOver;
 
     // Input:
     private Vector2 _moveInput;
@@ -22,10 +23,13 @@ public class BillMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _playerGameOver = GetComponent<PlayerGameOver>();
     }
 
     private void Update()
     {
+        if (_playerGameOver.GameEnded) return;
+
         GetMoveInput();
         Animate();
     }

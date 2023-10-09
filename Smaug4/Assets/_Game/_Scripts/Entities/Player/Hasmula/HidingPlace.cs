@@ -9,24 +9,25 @@ public class HidingPlace : MonoBehaviour
     [SerializeField] private bool playerColliding = false;
     [SerializeField] private bool keyPressed = false;
     [SerializeField] private bool isHidden = false;
-    public GameObject player;
+    private GameObject player;
 
     //Components
     [HideInInspector] public PlayerMagroMov _playerMagroMov;
     private Renderer playerRenderer;
     private Animator _animator;
+    private PlayerGameOver _playerGameOver;
 
-    //
     private Vector2 _exitPosition;
-
     #endregion
 
     #region Unity Functions
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         playerRenderer = player.GetComponent<Renderer>();
         _playerMagroMov = player.GetComponent<PlayerMagroMov>();
         _animator = player.GetComponent<Animator>();
+        _playerGameOver = player.GetComponent<PlayerGameOver>();
 
         //Posição que o player vai sair do objeto
         _exitPosition = new Vector2(this.transform.position.x, this.transform.position.y - 0.76f);
@@ -34,6 +35,8 @@ public class HidingPlace : MonoBehaviour
 
     void Update()
     {
+        if (_playerGameOver.GameEnded) return;
+        
         //detecta quando aperta o espaço
         if (Input.GetKeyDown(KeyCode.Space))
             keyPressed = true;

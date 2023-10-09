@@ -10,6 +10,7 @@ public class PlayerObjective : MonoBehaviour
     #region Variáveis Globais:
     // Referências:
     private CollisionLayersManager _collisionLayersManager;
+    private LevelManager _levelManager;
 
     // Tesouros coletados:
     [SerializeField] private List<Sprite> _currentTreasureSprites = new List<Sprite>();
@@ -27,6 +28,7 @@ public class PlayerObjective : MonoBehaviour
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
         _treasuresLeft = GameObject.FindObjectsOfType<TreasureBehaviour>().Length;
         _backpackAnimator = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Animator>();
+        _levelManager = GameObject.FindObjectOfType<LevelManager>();
         _backpackText = _backpackAnimator.gameObject.transform.Find("Canvas").gameObject.transform.Find("TxtTreasuresLeft").gameObject.GetComponent<TextMeshProUGUI>();
         _backpackText.text = _treasuresLeft.ToString();
     }
@@ -57,7 +59,7 @@ public class PlayerObjective : MonoBehaviour
         if (_treasuresLeft <= 0)
         {
             _treasuresLeft = 0;
-            Invoke("NextScene", 0.75f);
+            _levelManager.End();
         }
     }
 
@@ -66,7 +68,5 @@ public class PlayerObjective : MonoBehaviour
         yield return new WaitForSeconds(t);
         _canDeposit = true;
     }
-
-    private void NextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     #endregion
 }
