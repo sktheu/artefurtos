@@ -13,7 +13,8 @@ public class HidingPlace : MonoBehaviour
 
     //Components
     [HideInInspector] public PlayerMagroMov _playerMagroMov;
-    private Renderer playerRenderer;
+    private Rigidbody2D _playerRb;
+    private Renderer _playerRenderer;
     private Animator _animator;
     private PlayerGameOver _playerGameOver;
 
@@ -23,9 +24,11 @@ public class HidingPlace : MonoBehaviour
     #region Unity Functions
     void Start()
     {
+        //Puxando muitos componentes do player
         player = GameObject.FindWithTag("Player");
-        playerRenderer = player.GetComponent<Renderer>();
+        _playerRenderer = player.GetComponent<Renderer>();
         _playerMagroMov = player.GetComponent<PlayerMagroMov>();
+        _playerRb = player.GetComponent<Rigidbody2D>();
         _animator = player.GetComponent<Animator>();
         _playerGameOver = player.GetComponent<PlayerGameOver>();
 
@@ -49,6 +52,7 @@ public class HidingPlace : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //caso entre na área do armário
         if (collision.gameObject.CompareTag("Player"))
         {
             playerColliding = true;
@@ -57,6 +61,7 @@ public class HidingPlace : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        //casó saia da área do armário
         if (collision.gameObject.CompareTag("Player"))
         {
             playerColliding = false;
@@ -70,9 +75,10 @@ public class HidingPlace : MonoBehaviour
         //some o player
         if (playerColliding == true && keyPressed == true && isHidden == false)
         {
-            playerRenderer.enabled = false;
+            _playerRenderer.enabled = false;
             isHidden = true;
             keyPressed = false;
+            _playerRb.constraints = RigidbodyConstraints2D.FreezePosition;
             _playerMagroMov.CanMove = false;
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
@@ -84,11 +90,12 @@ public class HidingPlace : MonoBehaviour
     {
         if (playerColliding == true && keyPressed == true && isHidden == true)
         {
-            playerRenderer.enabled = true;
+            _playerRenderer.enabled = true;
             isHidden = false;
             keyPressed = false;
             player.transform.position = _exitPosition;
             _playerMagroMov.CanMove = true;
+            _playerRb.constraints = RigidbodyConstraints2D.None;
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);

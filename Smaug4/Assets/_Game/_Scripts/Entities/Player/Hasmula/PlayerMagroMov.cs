@@ -40,9 +40,10 @@ public class PlayerMagroMov : MonoBehaviour
     {
         if (_playerGameOver.GameEnded) return;
 
-        GetMoveInput();
-        RunInput();
+            GetMoveInput();
+            RunInput();
         
+
         //Controle de animação
         if (_moveInput.x != 0 || _moveInput.y != 0)
         {
