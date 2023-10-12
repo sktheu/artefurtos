@@ -12,9 +12,11 @@ public class TreasureBehaviour : MonoBehaviour
 
     [Header("Sprites:")] 
     [SerializeField] private Sprite[] sprites;
+    [SerializeField] private Sprite deskBrokenSprite;
 
     // Referências:
     private CollisionLayersManager _collisionLayersManager;
+    private SpriteRenderer _deskSpriteRenderer;
 
     // Componentes:
     private Rigidbody2D _rb;
@@ -37,6 +39,7 @@ public class TreasureBehaviour : MonoBehaviour
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _playerObjective = _playerTransform.gameObject.GetComponent<PlayerObjective>();
+        _deskSpriteRenderer = transform.parent.gameObject.GetComponent<SpriteRenderer>();
     } 
 
     private void Start()
@@ -62,6 +65,7 @@ public class TreasureBehaviour : MonoBehaviour
             _canMoveY = false;
             _hasCollided = true;
             transform.localScale = transform.localScale * 0.5f;
+            _deskSpriteRenderer.sprite = deskBrokenSprite;
             Destroy(gameObject, 0.2f);
         }
     }
