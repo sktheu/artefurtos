@@ -8,7 +8,7 @@ public class HidingPlace : MonoBehaviour
     #region Global variables
     [SerializeField] private bool playerColliding = false;
     [SerializeField] private bool keyPressed = false;
-    [SerializeField] private bool isHidden = false;
+    [SerializeField] public static bool isHidden = false;
     private GameObject player;
 
     //Components
@@ -25,6 +25,7 @@ public class HidingPlace : MonoBehaviour
     void Start()
     {
         //Puxando muitos componentes do player
+        isHidden = false;
         player = GameObject.FindWithTag("Player");
         _playerRenderer = player.GetComponent<Renderer>();
         _playerMagroMov = player.GetComponent<PlayerMagroMov>();

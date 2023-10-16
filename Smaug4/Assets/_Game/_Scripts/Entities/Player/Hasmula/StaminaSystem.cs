@@ -38,21 +38,6 @@ public class StaminaSystem : MonoBehaviour
 
     private void Update()
     {
-        // Não poderá correr caso estiver atirando ou o jogo ter finalizado
-        if (_shootBall.IsAiming || _playerGameOver.GameEnded) return;
-
-        //Só pra ativar e desativar a variável isSprinting
-        if (Input.GetKey(KeyCode.LeftShift) & 
-           (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.1f))
-        {
-          Sprinting();
-        }
-        else
-            isSprinting = false;
-
-        if (playerStamina > 5)
-            hasStamina = true;
-
         //Caso não esteja correndo
         if (!isSprinting)
         {
@@ -70,6 +55,22 @@ public class StaminaSystem : MonoBehaviour
                 }
             }
         }
+
+        // Não poderá correr caso estiver atirando ou o jogo ter finalizado
+        if (_shootBall.IsAiming || _playerGameOver.GameEnded) return;
+
+        //Só pra ativar e desativar a variável isSprinting
+        if (Input.GetKey(KeyCode.LeftShift) & 
+           (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.1f))
+        {
+          Sprinting();
+        }
+        else
+            isSprinting = false;
+
+        if (playerStamina > 5)
+            hasStamina = true;
+        
     }
 
     #endregion
