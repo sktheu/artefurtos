@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    #region Global Variables
+
     public static bool gamePaused = false;
 
     public GameObject canvasMenu;
@@ -15,7 +17,23 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject staminaCanvas;
 
+    private ShootBall _ShootBall;
+
+    //Se for 1 está mirando, se for 0 não está
+    [SerializeField]
+    private int verifyAim = 0;
+
     public static string menuName;
+
+    #endregion
+
+    #region Unity Functions
+
+    private void Start()
+    {
+        staminaCanvas = GameObject.Find("StaminaBar_CanvasGroup");
+        _ShootBall = GetComponent<ShootBall>();
+    }
 
     private void Update()
     {
@@ -32,6 +50,10 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Personal Functions
+
     public void Resume()
     {
         canvasMenu.SetActive(false);
@@ -41,6 +63,14 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
+        //Verificar se vai ativar ou não a mira
+        /*if (verifyAim == 1)
+        {
+            _ShootBall.IsAiming = true;
+            verifyAim = 0;
+        }
+        else
+            verifyAim = 0;*/
     }
 
     private void Pause()
@@ -52,6 +82,15 @@ public class PauseMenu : MonoBehaviour
         gamePaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        //Sumir com a mira e parar animação
+        /*if (_ShootBall.IsAiming == true)
+        {
+            verifyAim = 1;
+            _ShootBall.IsAiming = false;
+        }
+        else
+            verifyAim = 0;*/
+            
     }
 
     public void LoadMenu()
@@ -68,4 +107,5 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(cenaAtual);
     }
 
+    #endregion
 }

@@ -28,6 +28,7 @@ public class ShootBall : MonoBehaviour
 
     // Balls:
     private int _ballCurCount;
+    private int ballLastCount;
     
     // Animators:
     private RuntimeAnimatorController _defaultAnimController;
@@ -49,11 +50,25 @@ public class ShootBall : MonoBehaviour
 
     private void Update()
     {
-        if (_playerGameOver.GameEnded)
+        if (HidingPlace.isHidden)
+            return;
+
+        if (_playerGameOver.GameEnded || PauseMenu.gamePaused || HidingPlace.isHidden)
         {
             _animator.runtimeAnimatorController = _defaultAnimController;
+            IsAiming = false;
+
+            if (!HidingPlace.isHidden)
+                _playerMove.CanMove = true;
+
+            if (ballLastCount == 0)
+            {
+                ballLastCount = _ballCurCount;
+                _ballCurCount = 0;
+            }
             return;
         }
+        
 
         if (IsAiming)
         {
@@ -80,6 +95,13 @@ public class ShootBall : MonoBehaviour
                 _playerMove.CanMove = false;
                 _rb.velocity = Vector2.zero;
             }
+        }
+
+        if (ballLastCount != 0)
+        {
+            _ballCurCount = ballLastCount;
+            ballLastCount = 0;
+
         }
     }
     #endregion
