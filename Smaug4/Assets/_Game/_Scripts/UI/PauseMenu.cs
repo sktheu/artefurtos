@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EasyTransition;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject staminaCanvas;
 
-    private ShootBall _ShootBall;
+    private LevelManager _levelManager;
 
     //Se for 1 está mirando, se for 0 não está
     [SerializeField]
@@ -29,10 +30,14 @@ public class PauseMenu : MonoBehaviour
 
     #region Unity Functions
 
+    private void Awake()
+    {
+        _levelManager = GameObject.FindObjectOfType<LevelManager>();
+    }
+
     private void Start()
     {
         staminaCanvas = GameObject.Find("StaminaBar_CanvasGroup");
-        _ShootBall = GetComponent<ShootBall>();
     }
 
     private void Update()
@@ -102,9 +107,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        //TROCAR PRO SISTEMA DO DUCA DEPOIS
-        int cenaAtual = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(cenaAtual);
+        //int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+        //SceneManager.LoadScene(cenaAtual);
+        Time.timeScale = 1;
+        _levelManager.Restart();
     }
 
     #endregion
