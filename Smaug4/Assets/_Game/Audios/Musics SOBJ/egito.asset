@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77ab1e90cd71b64fa10c5b7a6b99956, type: 3}
   m_Name: egito
   m_EditorClassIdentifier: 
-  Clip: {fileID: 8300000, guid: b64426a2ebf1c06428149181b6f92ffa, type: 3}
+  Clip: {fileID: 8300000, guid: 78a6044445eb0cb4097811dd37c07da0, type: 3}
   Volume: 1
