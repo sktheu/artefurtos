@@ -20,10 +20,6 @@ public class PauseMenu : MonoBehaviour
 
     private LevelManager _levelManager;
 
-    //Se for 1 está mirando, se for 0 não está
-    [SerializeField]
-    private int verifyAim = 0;
-
     public static string menuName;
 
     #endregion
