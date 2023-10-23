@@ -22,5 +22,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void Restart() => TransitionManager.Instance().Transition(SceneManager.GetActiveScene().name, transitionSettings, loadTime);
+    
+    public void GoTo(string sceneName) => TransitionManager.Instance().Transition(sceneName, transitionSettings, loadTime);
     #endregion
 }

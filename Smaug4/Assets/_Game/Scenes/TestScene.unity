@@ -180,11 +180,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0cb8d318c190e540a4a9d053fa2ae9c, type: 3}
---- !u!225 &175562772 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 2445596260461402494, guid: 7ddcd2fd601e5084e93cb5d4ac97ebbf, type: 3}
-  m_PrefabInstance: {fileID: 914123021}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &424636695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7422754877255105727, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
@@ -409,17 +404,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ddcd2fd601e5084e93cb5d4ac97ebbf, type: 3}
---- !u!114 &1049350889 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3031369443856037958, guid: 7ddcd2fd601e5084e93cb5d4ac97ebbf, type: 3}
-  m_PrefabInstance: {fileID: 914123021}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2080374006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,11 +838,11 @@ PrefabInstance:
     - target: {fileID: 3890542716432565261, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
       propertyPath: sliderCanvasGroup
       value: 
-      objectReference: {fileID: 175562772}
+      objectReference: {fileID: 0}
     - target: {fileID: 3890542716432565261, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
       propertyPath: staminaProgressUI
       value: 
-      objectReference: {fileID: 1049350889}
+      objectReference: {fileID: 0}
     - target: {fileID: 7422754877255105727, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
       propertyPath: m_Name
       value: Hasmula

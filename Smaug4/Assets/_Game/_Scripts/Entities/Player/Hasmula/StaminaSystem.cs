@@ -29,6 +29,14 @@ public class StaminaSystem : MonoBehaviour
 
     #region Unity Functions
 
+    private void Awake()
+    {
+        sliderCanvasGroup = GameObject.Find("UICanvas").gameObject.transform.Find("StaminaBar_CanvasGroup").gameObject
+            .GetComponent<CanvasGroup>();
+        staminaProgressUI = sliderCanvasGroup.gameObject.transform.Find("StaminaBar").gameObject.GetComponent<Image>();
+    }
+
+
     private void Start()
     {
         _playerMagroMov = GetComponent<PlayerMagroMov>();
