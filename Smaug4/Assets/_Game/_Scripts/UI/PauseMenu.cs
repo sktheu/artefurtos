@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     #region Global Variables
+    // Inspector:
+    [SerializeField] private Texture2D defaultCursor;
+    [SerializeField] private Texture2D clickCursor;
 
     public static bool gamePaused = false;
 
@@ -49,12 +52,19 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-    }
 
+        if (gamePaused)
+        {
+            if (Input.GetMouseButtonDown(0))
+                Cursor.SetCursor(clickCursor, Vector2.zero, CursorMode.ForceSoftware);
+
+            if (Input.GetMouseButtonUp(0))
+                Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
+        }
+    }
     #endregion
 
     #region Personal Functions
-
     public void Resume()
     {
         canvasMenu.SetActive(false);
@@ -82,6 +92,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gamePaused = true;
         Cursor.visible = true;
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
         Cursor.lockState = CursorLockMode.None;
         //Sumir com a mira e parar animação
         /*if (_ShootBall.IsAiming == true)

@@ -231,7 +231,7 @@ MonoBehaviour:
   ballInitialCount: 3
   ballPrefab: {fileID: 557333822908284426, guid: c2cbbc1bbebf6134c9ed830207fba9a0, type: 3}
   shootAnimController: {fileID: 9100000, guid: c543631f2ca4baa4eba2e9686b390157, type: 2}
-  aimTexture: {fileID: 2800000, guid: 620453a7d0b815d4d8ba52b7d0d43358, type: 3}
+  aimTexture: {fileID: 2800000, guid: dd2d53ba329f2f04b821132bb93092d2, type: 3}
   IsAiming: 0
 --- !u!114 &91161995216302062
 MonoBehaviour:

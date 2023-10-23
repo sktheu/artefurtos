@@ -35,7 +35,11 @@ public class ShootBall : MonoBehaviour
     #endregion
 
     #region Funções Unity
-    private void Awake() => _ballCurCount = ballInitialCount;
+
+    private void Awake()
+    {
+        _ballCurCount = ballInitialCount;
+    }
 
     private void Start()
     {

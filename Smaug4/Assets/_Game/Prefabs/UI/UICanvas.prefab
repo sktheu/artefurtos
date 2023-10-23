@@ -3074,6 +3074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239ad3feaf8dd6a43b99d3174fd2c382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 2800000, guid: e47c68eac2ef40242863477d557ae7df, type: 3}
+  clickCursor: {fileID: 2800000, guid: 21c2f99334798924fb4f05a67fad1ec4, type: 3}
   canvasMenu: {fileID: 6042082465957689155}
   pauseMenu: {fileID: 3044255176862579490}
   optionsMenuUI: {fileID: 6556544141490712124}
