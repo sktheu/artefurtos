@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     #endregion
 
     #region Funções Unity
-    public void Awake()
+    private void Awake()
     {
         _audioManager = GameObject.FindObjectOfType<AudioManager>();
         _levelManager = GameObject.FindObjectOfType<LevelManager>();
