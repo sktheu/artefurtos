@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     #region Variáveis Globais
     // Inspector:
-    [Header("Configurações:")]
+    [Header("Transição:")]
     [SerializeField] private TransitionSettings transitionSettings;
     [SerializeField] private float loadTime;
     #endregion
@@ -22,7 +22,5 @@ public class LevelManager : MonoBehaviour
     }
 
     public void Restart() => TransitionManager.Instance().Transition(SceneManager.GetActiveScene().name, transitionSettings, loadTime);
-    
-    public void GoTo(string sceneName) => TransitionManager.Instance().Transition(sceneName, transitionSettings, loadTime);
     #endregion
 }

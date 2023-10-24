@@ -8,6 +8,11 @@ public class PauseMenu : MonoBehaviour
 {
     #region Global Variables
     // Inspector:
+    [Header("Transição:")]
+    [SerializeField] private TransitionSettings[] transitionSettings = new TransitionSettings[2];
+    [SerializeField] private float transitionDelay;
+
+    [Header("Cursor:")]
     [SerializeField] private Texture2D defaultCursor;
     [SerializeField] private Texture2D clickCursor;
 
@@ -107,9 +112,16 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("Menu 1");
-        Debug.Log("Foi pro menu principal");
+
+        TransitionManager.Instance().Transition("LevelSelector", transitionSettings[MainMenu.CurTransitionIndex],
+            transitionDelay);
+
+        if (MainMenu.CurTransitionIndex == 0)
+            MainMenu.CurTransitionIndex = 1;
+        else
+            MainMenu.CurTransitionIndex = 0;
+
+        Time.timeScale = 1f;
     }
 
     public void Restart()
