@@ -16,6 +16,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Texture2D defaultCursor;
     [SerializeField] private Texture2D clickCursor;
 
+    // Referências:
+    private AudioManager _audioManager;
+
     public static bool gamePaused = false;
 
     public GameObject canvasMenu;
@@ -37,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         _levelManager = GameObject.FindObjectOfType<LevelManager>();
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -79,6 +83,7 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
+        //_audioManager.PlaySFX("despause");
         //Verificar se vai ativar ou não a mira
         /*if (verifyAim == 1)
         {
@@ -99,6 +104,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
         Cursor.lockState = CursorLockMode.None;
+        //_audioManager.PlaySFX("pause");
         //Sumir com a mira e parar animação
         /*if (_ShootBall.IsAiming == true)
         {
@@ -107,7 +113,6 @@ public class PauseMenu : MonoBehaviour
         }
         else
             verifyAim = 0;*/
-            
     }
 
     public void LoadMenu()
