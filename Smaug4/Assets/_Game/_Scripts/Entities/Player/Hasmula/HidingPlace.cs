@@ -19,6 +19,7 @@ public class HidingPlace : MonoBehaviour
     private Rigidbody2D _playerRb;
     private Renderer _playerRenderer;
     private Animator _animator;
+    private Animator _HPanimator;
     private PlayerGameOver _playerGameOver;
 
     private Vector2 _exitPosition;
@@ -34,8 +35,9 @@ public class HidingPlace : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         _playerRenderer = player.GetComponent<Renderer>();
         _playerMagroMov = player.GetComponent<PlayerMagroMov>();
-        _playerRb = player.GetComponent<Rigidbody2D>();
+        _playerRb = player.GetComponent<Rigidbody2D>(); 
         _animator = player.GetComponent<Animator>();
+        _HPanimator = GetComponent<Animator>();
         _playerGameOver = player.GetComponent<PlayerGameOver>();
 
         //Posição que o player vai sair do objeto
@@ -86,6 +88,8 @@ public class HidingPlace : MonoBehaviour
             keyPressed = false;
             _playerRb.constraints = RigidbodyConstraints2D.FreezePosition;
             _playerMagroMov.CanMove = false;
+
+            _HPanimator.Play("Open");
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);
@@ -103,11 +107,26 @@ public class HidingPlace : MonoBehaviour
             player.transform.position = _exitPosition;
             _playerMagroMov.CanMove = true;
             _playerRb.constraints = RigidbodyConstraints2D.None;
+
+            _HPanimator.Play("Closing");
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);
             //_audioManager.PlaySFX("armario_fechando");
         }
     }
+
+    public void IdleInside()
+    {
+        Debug.Log("foi o evento1");
+        _HPanimator.Play("IdleInside");
+    }
+
+    public void IdleOutside()
+    {
+        Debug.Log("foi o evento2");
+        _HPanimator.Play("IdleOutside");
+    }
+
     #endregion
 }
