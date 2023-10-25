@@ -11,7 +11,10 @@ public class HidingPlace : MonoBehaviour
     [SerializeField] public static bool isHidden = false;
     private GameObject player;
 
-    //Components
+    // References
+    private static AudioManager _audioManager;
+
+    // Components
     [HideInInspector] public PlayerMagroMov _playerMagroMov;
     private Rigidbody2D _playerRb;
     private Renderer _playerRenderer;
@@ -24,6 +27,8 @@ public class HidingPlace : MonoBehaviour
     #region Unity Functions
     void Start()
     {
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+
         //Puxando muitos componentes do player
         isHidden = false;
         player = GameObject.FindWithTag("Player");
@@ -84,6 +89,7 @@ public class HidingPlace : MonoBehaviour
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);
+            //_audioManager.PlaySFX("armario_abrindo");
         }
     }
 
@@ -100,6 +106,7 @@ public class HidingPlace : MonoBehaviour
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);
+            //_audioManager.PlaySFX("armario_fechando");
         }
     }
     #endregion

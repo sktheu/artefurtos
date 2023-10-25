@@ -13,6 +13,9 @@ public class CallGuards : MonoBehaviour
     [SerializeField] private float alertIncrement;
     [SerializeField] private float alertDecrement;
 
+    // Referências:
+    private static AudioManager _audioManager;
+
     // Modificador do Progresso de Alerta:
     public enum AlertModifier { Decrease, Increase, Maximize }
 
@@ -21,6 +24,8 @@ public class CallGuards : MonoBehaviour
     #endregion
 
     #region Funções Unity
+    //private void Awake() => _audioManager = GameObject.FindObjectOfType<AudioManager>();
+
     //private void Update() => print(_currentAlertProgress);
     #endregion
 
