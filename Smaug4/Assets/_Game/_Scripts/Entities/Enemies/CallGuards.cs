@@ -21,6 +21,9 @@ public class CallGuards : MonoBehaviour
 
     // Alert:
     private float _currentAlertProgress;
+
+    // SFX:
+    private bool _canPlaySfx = true;
     #endregion
 
     #region Funções Unity
@@ -35,6 +38,15 @@ public class CallGuards : MonoBehaviour
         if (modifier == AlertModifier.Increase)
         {
             _currentAlertProgress = Mathf.Clamp(_currentAlertProgress + alertIncrement * Time.deltaTime, 0f, maxAlertProgress);
+
+            /*
+            if (_canPlaySfx)
+            {
+                _canPlaySfx = false;
+                _audioManager.PlaySFX("chamando_guardas");
+                StartCoroutine(SetSfxInterval(3f));
+            }
+            */
 
             if (_currentAlertProgress >= maxAlertProgress) // Player totalmente avistado
             {
@@ -66,6 +78,12 @@ public class CallGuards : MonoBehaviour
     {
         foreach (var g in GuardBehaviour.Guards) 
             g.SetState(GuardBehaviour.GuardStates.Chase);
+    }
+
+    private IEnumerator SetSfxInterval(float interval)
+    {
+        yield return new WaitForSeconds(interval);
+        _canPlaySfx = true;
     }
     #endregion
 }
