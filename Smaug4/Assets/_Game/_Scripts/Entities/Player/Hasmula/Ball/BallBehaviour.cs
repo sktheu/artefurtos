@@ -13,6 +13,7 @@ public class BallBehaviour : MonoBehaviour
 
     // Referências:
     private static CollisionLayersManager _collisionLayersManager;
+    private static AudioManager _audioManager;
 
     // Componentes:
     private Rigidbody2D _rb;
@@ -25,6 +26,7 @@ public class BallBehaviour : MonoBehaviour
     private void Awake()
     {
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start() => _rb = GetComponent<Rigidbody2D>();
@@ -48,7 +50,8 @@ public class BallBehaviour : MonoBehaviour
             else
             {
                 CheckGuards();
-                Destroy(gameObject);
+                //_audioManager.PlaySFX("bola_colisao");
+                Destroy(gameObject, 0.5f);
             }
         }
     }

@@ -8,9 +8,6 @@ public class MainMenu : MonoBehaviour
 {
     #region Variáveis Globais
     // Inspector:
-    [Header("Configurações:")]
-    [SerializeField] private string musicMenu;
-
     [Header("Transição:")]
     [SerializeField] private TransitionSettings[] transitionSettings = new TransitionSettings[2];
     [SerializeField] private float transitionDelay;
@@ -32,7 +29,6 @@ public class MainMenu : MonoBehaviour
     {
         _audioManager = GameObject.FindObjectOfType<AudioManager>();
         _levelManager = GameObject.FindObjectOfType<LevelManager>();
-        //_audioManager.PlayMusic(musicMenu);
 
         Cursor.visible = true;
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.ForceSoftware);

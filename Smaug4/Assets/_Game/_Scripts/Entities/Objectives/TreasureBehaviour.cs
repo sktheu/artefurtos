@@ -17,6 +17,7 @@ public class TreasureBehaviour : MonoBehaviour
     // Referências:
     private CollisionLayersManager _collisionLayersManager;
     private SpriteRenderer _deskSpriteRenderer;
+    private static AudioManager _audioManager;
 
     // Componentes:
     private Rigidbody2D _rb;
@@ -40,6 +41,8 @@ public class TreasureBehaviour : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _playerObjective = _playerTransform.gameObject.GetComponent<PlayerObjective>();
         _deskSpriteRenderer = transform.parent.gameObject.GetComponent<SpriteRenderer>();
+
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
     } 
 
     private void Start()
@@ -66,6 +69,7 @@ public class TreasureBehaviour : MonoBehaviour
             _hasCollided = true;
             transform.localScale = transform.localScale * 0.5f;
             _deskSpriteRenderer.sprite = deskBrokenSprite;
+            //_audioManager.PlaySFX("coletando_da_estante");
             Destroy(gameObject, 0.2f);
         }
     }

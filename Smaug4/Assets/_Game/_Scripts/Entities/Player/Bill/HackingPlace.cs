@@ -26,13 +26,18 @@ public class HackingPlace : MonoBehaviour
 
     // Referências:
     private static CollisionLayersManager _collisionLayersManager;
+    private static AudioManager _audioManager;
 
     private bool _canDisable = true;
     #endregion
 
     #region Funções Unity
 
-    private void Awake() => _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+    private void Awake()
+    {
+        _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+    }
 
     private void Start()
     {
@@ -62,6 +67,8 @@ public class HackingPlace : MonoBehaviour
                 _playerAnimator.SetTrigger("HackingLeft");
             else
                 _playerAnimator.SetTrigger("HackingRight");
+
+            //_audioManager.PlaySFX("estacao_hack");
         }
     }
 
@@ -70,7 +77,10 @@ public class HackingPlace : MonoBehaviour
         if (collision.gameObject.layer == _collisionLayersManager.Player.Index)
             playerColliding = true;
         else if (collision.gameObject.layer == _collisionLayersManager.Guards.Index)
+        {
+            //_audioManager.PlaySFX("estacao_hack");
             EnableDevice();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

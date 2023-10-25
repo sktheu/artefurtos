@@ -11,6 +11,7 @@ public class PlayerObjective : MonoBehaviour
     // Referências:
     private CollisionLayersManager _collisionLayersManager;
     private LevelManager _levelManager;
+    private AudioManager _audioManager;
 
     // Tesouros coletados:
     [SerializeField] private List<Sprite> _currentTreasureSprites = new List<Sprite>();
@@ -20,12 +21,14 @@ public class PlayerObjective : MonoBehaviour
     private Animator _backpackAnimator;
     private TextMeshProUGUI _backpackText;
     private bool _canDeposit = true;
+    private int _curSfxIndex = 0;
     #endregion
 
     #region Funções Unity
     private void Awake()
     {
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
         _treasuresLeft = GameObject.FindObjectsOfType<TreasureBehaviour>().Length;
         _backpackAnimator = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Animator>();
         _levelManager = GameObject.FindObjectOfType<LevelManager>();
@@ -59,14 +62,19 @@ public class PlayerObjective : MonoBehaviour
         if (_treasuresLeft <= 0)
         {
             _treasuresLeft = 0;
+            //_audioManager.PlaySFX("game_win");
             _levelManager.End();
         }
     }
 
     private IEnumerator SetDepositInterval(float t)
     {
+        //_audioManager.PlaySFX("mochila_depositando_" + _curSfxIndex);
         yield return new WaitForSeconds(t);
         _canDeposit = true;
+        _curSfxIndex++;
+        if (_curSfxIndex > 2)
+            _curSfxIndex = 0;
     }
     #endregion
 }

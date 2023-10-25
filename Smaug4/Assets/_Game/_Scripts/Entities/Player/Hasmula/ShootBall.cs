@@ -16,6 +16,9 @@ public class ShootBall : MonoBehaviour
     [Header("Cursor:")] 
     [SerializeField] private Texture2D aimTexture;
 
+    // Referências:
+    private AudioManager _audioManager;
+
     // Componentes:
     private PlayerMagroMov _playerMove;
     private Animator _animator;
@@ -39,6 +42,7 @@ public class ShootBall : MonoBehaviour
     private void Awake()
     {
         _ballCurCount = ballInitialCount;
+        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -90,6 +94,7 @@ public class ShootBall : MonoBehaviour
                 IsAiming = false;
                 _playerMove.CanMove = true;
                 _ballCurCount--;
+                //_audioManager.PlaySFX("hasmula_baseball_bat");
             }
             else
             {

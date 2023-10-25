@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Backpack
+  - AudioManager
   layers:
   - Default
   - TransparentFX

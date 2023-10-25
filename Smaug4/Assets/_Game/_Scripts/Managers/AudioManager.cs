@@ -13,9 +13,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private SFX[] sfxs;
 
     // Música Atual:
-    private float musicCurTime;
-    private string musicCurName;
-    private AudioSource curMusicAudioSource;
+    private static float musicCurTime;
+    private static string musicCurName;
+    private static AudioSource curMusicAudioSource;
     private GameObject musicCurObj;
     #endregion
 
@@ -23,14 +23,14 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         //DontDestroyOnLoad(gameObject); // Faz com que o objeto mova entre as scenes
-        //AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
+        AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
     }
 
     private void Update()
     {
-        //AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
+        AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
 
-        // Retomando o progresso da m�sica que estava tocando
+        // Retomando o progresso da música que estava tocando
         if (curMusicAudioSource != null) musicCurTime = curMusicAudioSource.time;
     }
     #endregion
@@ -67,13 +67,9 @@ public class AudioManager : MonoBehaviour
                 mAudioSource.clip = m.Clip;
                 mAudioSource.volume = m.Volume;
                 if (musicCurTime != 0 && m.Clip.name == musicCurName)
-                {
                     mAudioSource.time = musicCurTime;
-                }
                 else
-                {
                     Destroy(musicCurObj);
-                }
 
                 musicCurObj = mObj;
                 musicCurName = m.Clip.name;
