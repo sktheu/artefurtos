@@ -107,6 +107,7 @@ public class HidingPlace : MonoBehaviour
             player.transform.position = _exitPosition;
             _playerMagroMov.CanMove = true;
             _playerRb.constraints = RigidbodyConstraints2D.None;
+            _playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             _HPanimator.Play("Closing");
             _animator.SetFloat("Horizontal", 0f);
