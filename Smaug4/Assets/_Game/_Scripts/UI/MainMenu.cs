@@ -58,6 +58,7 @@ public class MainMenu : MonoBehaviour
 
         PauseMenu.menuName = SceneManager.GetActiveScene().name;
         TransitionManager.Instance().Transition("LevelSelector", transitionSettings[CurTransitionIndex], transitionDelay);
+        SceneManager.LoadScene("SelectionMenu");
     }
 
     public void QuitGame()
