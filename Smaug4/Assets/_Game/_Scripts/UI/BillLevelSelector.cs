@@ -14,6 +14,7 @@ public class BillLevelSelector : MonoBehaviour
         int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 4);
 
         //Bloqueia o botão do nível
+
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].interactable = false;
