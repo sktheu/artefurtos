@@ -4,21 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelSelector : MonoBehaviour
+public class BillLevelSelector : MonoBehaviour
 {
     public Button[] buttons;
 
     private void Awake()
     {
         //Desbloqueia o nível 1
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 4);
 
         //Bloqueia o botão do nível
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].interactable = false;
         }
-        
+
         //Desbloqueia o botão do nível
         for (int i = 0; i < unlockedLevel; i++)
         {

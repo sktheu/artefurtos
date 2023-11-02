@@ -14,4 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/Menus/SelectionMenu.unity
     guid: 105ef99e7ca629443a2b2f9545b5d054
+  - enabled: 1
+    path: Assets/_Game/Scenes/CenasTeste(Apagar)/testLevel 1.unity
+    guid: 7b6b02a541b26624f8318039e8525469
+  - enabled: 1
+    path: Assets/_Game/Scenes/CenasTeste(Apagar)/testLevel 2.unity
+    guid: c084b1e4e89300d4b83317085b153899
+  - enabled: 1
+    path: Assets/_Game/Scenes/CenasTeste(Apagar)/testLevel 3.unity
+    guid: 2b4ae40aa8cbd394f842eff55838b1ec
+  - enabled: 1
+    path: Assets/_Game/Scenes/CenasTeste(Apagar)/testLevel 4.unity
+    guid: 8071a46718064de4f8458227a511a74b
+  - enabled: 1
+    path: Assets/_Game/Scenes/CenasTeste(Apagar)/testLevel 5.unity
+    guid: 7092ce4cf8b8dbf4e865e55cbe170381
+  - enabled: 1
+    path: Assets/_Game/Scenes/CenasTeste(Apagar)/testLevel 6.unity
+    guid: 12cea9bec23517145aaa57d399701add
   m_configObjects: {}
