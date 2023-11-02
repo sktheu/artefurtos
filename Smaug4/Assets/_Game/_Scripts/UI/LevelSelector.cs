@@ -11,7 +11,7 @@ public class LevelSelector : MonoBehaviour
     private void Awake()
     {
         //Desbloqueia o nível 1
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula", 1);
 
         //Bloqueia o botão do nível
         for (int i = 0; i < buttons.Length; i++)

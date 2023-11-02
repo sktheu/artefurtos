@@ -8,9 +8,19 @@ public class LevelManager : MonoBehaviour
 {
     #region Variáveis Globais
     // Inspector:
+    [Header("Tipo de Personagem:")] 
+    [SerializeField] private int nextLevel;
+    [SerializeField] private CharacterType characterType;
+
     [Header("Transição:")]
     [SerializeField] private TransitionSettings transitionSettings;
     [SerializeField] private float loadTime;
+    
+    private enum CharacterType
+    {
+        Bill,
+        Hasmula
+    }
     #endregion
 
     #region Funções Próprias
@@ -22,5 +32,13 @@ public class LevelManager : MonoBehaviour
     }
 
     public void Restart() => TransitionManager.Instance().Transition(SceneManager.GetActiveScene().name, transitionSettings, loadTime);
+
+    public void Complete()
+    {
+        if (characterType == CharacterType.Hasmula)
+            PlayerPrefs.SetInt("UnlockedLevelHasmula", nextLevel);
+        else
+            PlayerPrefs.SetInt("UnlockedLevelBill", nextLevel);
+    }
     #endregion
 }

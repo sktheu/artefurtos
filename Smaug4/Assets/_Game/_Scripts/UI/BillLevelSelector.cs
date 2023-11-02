@@ -11,7 +11,7 @@ public class BillLevelSelector : MonoBehaviour
     private void Awake()
     {
         //Desbloqueia o nível 1
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 4);
+        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelBill", 1);
 
         //Bloqueia o botão do nível
 
