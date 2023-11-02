@@ -11,7 +11,12 @@ public class LevelSelector : MonoBehaviour
     private void Awake()
     {
         //Desbloqueia o nível 1
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula", 1);
+        int unlockedLevel;
+
+        if (PlayerPrefs.GetInt("UnlockedLevelHasmula") == 0)
+            unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula", 1);
+        else
+            unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula");
 
         //Bloqueia o botão do nível
         for (int i = 0; i < buttons.Length; i++)
@@ -23,6 +28,7 @@ public class LevelSelector : MonoBehaviour
         for (int i = 0; i < unlockedLevel; i++)
         {
             buttons[i].interactable = true;
+            buttons[i].gameObject.GetComponent<ChangeIcon>().Change();
         }
     }
 

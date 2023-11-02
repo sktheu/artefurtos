@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,12 @@ public class BillLevelSelector : MonoBehaviour
     private void Awake()
     {
         //Desbloqueia o nível 1
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelBill", 1);
+        int unlockedLevel;
+
+        if (PlayerPrefs.GetInt("UnlockedLevelBill") == 0)
+            unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelBill", 1);
+        else
+            unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelBill");
 
         //Bloqueia o botão do nível
 
@@ -24,6 +30,7 @@ public class BillLevelSelector : MonoBehaviour
         for (int i = 0; i < unlockedLevel; i++)
         {
             buttons[i].interactable = true;
+            buttons[i].gameObject.GetComponent<ChangeIcon>().Change();
         }
     }
 

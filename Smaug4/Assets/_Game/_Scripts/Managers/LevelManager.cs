@@ -26,19 +26,15 @@ public class LevelManager : MonoBehaviour
     #region Funções Próprias
     public void End()
     {
-        // Ir para o menu de seleção de fases
-        // Desbloquear fase nova
-        TransitionManager.Instance().Transition(SceneManager.GetActiveScene().name, transitionSettings, loadTime);
-    }
-
-    public void Restart() => TransitionManager.Instance().Transition(SceneManager.GetActiveScene().name, transitionSettings, loadTime);
-
-    public void Complete()
-    {
         if (characterType == CharacterType.Hasmula)
             PlayerPrefs.SetInt("UnlockedLevelHasmula", nextLevel);
         else
             PlayerPrefs.SetInt("UnlockedLevelBill", nextLevel);
+        // Ir para o menu de seleção de fases
+        // Desbloquear fase nova
+        TransitionManager.Instance().Transition("SelectionMenu", transitionSettings, loadTime);
     }
+
+    public void Restart() => TransitionManager.Instance().Transition(SceneManager.GetActiveScene().name, transitionSettings, loadTime);
     #endregion
 }
