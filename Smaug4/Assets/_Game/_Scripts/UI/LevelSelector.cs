@@ -14,9 +14,14 @@ public class LevelSelector : MonoBehaviour
         int unlockedLevel;
 
         if (PlayerPrefs.GetInt("UnlockedLevelHasmula") == 0)
-            unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula", 1);
-        else
+        {
+            PlayerPrefs.SetInt("UnlockedLevelHasmula", 1);
             unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula");
+        }
+        else
+        {
+            unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula");
+        }
 
         //Bloqueia o botão do nível
         for (int i = 0; i < buttons.Length; i++)

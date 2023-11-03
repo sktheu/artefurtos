@@ -27,9 +27,15 @@ public class LevelManager : MonoBehaviour
     public void End()
     {
         if (characterType == CharacterType.Hasmula)
-            PlayerPrefs.SetInt("UnlockedLevelHasmula", nextLevel);
+        {
+            if (PlayerPrefs.GetInt("UnlockedLevelHasmula") < nextLevel)
+                PlayerPrefs.SetInt("UnlockedLevelHasmula", nextLevel);
+        }
         else
-            PlayerPrefs.SetInt("UnlockedLevelBill", nextLevel);
+        {
+            if (PlayerPrefs.GetInt("UnlockedLevelBill") < nextLevel)
+                PlayerPrefs.SetInt("UnlockedLevelBill", nextLevel);
+        }
         // Ir para o menu de seleção de fases
         // Desbloquear fase nova
         TransitionManager.Instance().Transition("SelectionMenu", transitionSettings, loadTime);
