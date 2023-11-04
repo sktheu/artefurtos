@@ -9,8 +9,15 @@ public class BillLevelSelector : MonoBehaviour
 {
     public Button[] buttons;
 
-    private void Awake()
+
+    private void Start()
     {
+        //PlayerPrefs.DeleteAll();
+
+        //Ativando cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //Desbloqueia o nível 1
         int unlockedLevel;
 
@@ -23,9 +30,9 @@ public class BillLevelSelector : MonoBehaviour
         {
             unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelBill");
         }
+        Debug.Log(unlockedLevel);
 
         //Bloqueia o botão do nível
-
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].interactable = false;

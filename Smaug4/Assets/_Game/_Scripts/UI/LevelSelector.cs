@@ -8,8 +8,14 @@ public class LevelSelector : MonoBehaviour
 {
     public Button[] buttons;
 
-    private void Awake()
+    private void Start()
     {
+        //PlayerPrefs.DeleteAll();
+
+        //Ativando cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //Desbloqueia o nível 1
         int unlockedLevel;
 
@@ -22,13 +28,14 @@ public class LevelSelector : MonoBehaviour
         {
             unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula");
         }
+        Debug.Log(unlockedLevel);
 
         //Bloqueia o botão do nível
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].interactable = false;
         }
-        
+
         //Desbloqueia o botão do nível
         for (int i = 0; i < unlockedLevel; i++)
         {

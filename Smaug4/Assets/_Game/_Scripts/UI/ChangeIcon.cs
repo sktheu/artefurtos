@@ -12,5 +12,9 @@ public class ChangeIcon : MonoBehaviour
 
     private void Start() => _img = GetComponent<Image>();
 
-    public void Change() => _img.sprite = unlockedIcon;
+    public void Change()
+    {
+        _img.sprite = unlockedIcon; 
+        Debug.Log("mudou icone");
+    }
 }
