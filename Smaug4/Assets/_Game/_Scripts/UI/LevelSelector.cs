@@ -1,3 +1,4 @@
+using System;
 using EasyTransition;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,8 +63,11 @@ public class LevelSelector : MonoBehaviour
     #endregion
 
     #region Funções Próprias
-    public void OpenLevel(int levelId)
+    public void OpenLevel(int levelId) => StartCoroutine(LoadOpenLevel(levelId, 0.28f));
+
+    private IEnumerator LoadOpenLevel(int levelId, float t)
     {
+        yield return new WaitForSeconds(t);
         string levelName = "testLevel " + levelId;
         TransitionManager.Instance().Transition(levelName, transitionSettings[MainMenu.CurTransitionIndex],
             transitionDelay);
@@ -74,6 +78,9 @@ public class LevelSelector : MonoBehaviour
             MainMenu.CurTransitionIndex = 0;
     }
 
-    public void Back() => SceneManager.LoadScene("MainMenu");
+    public void Back() => Invoke("LoadMainMenu", 0.28f);
+
+    private void LoadMainMenu() => SceneManager.LoadScene("MainMenu");
+
     #endregion
 }

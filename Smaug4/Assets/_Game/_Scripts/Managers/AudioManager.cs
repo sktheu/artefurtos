@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Music[] musics;
     [SerializeField] private SFX[] sfxs;
 
+    // Componentes:
+    private FadeVolume _fadeVolume;
+
     // Música Atual:
     private static float musicCurTime;
     private static string musicCurName;
@@ -20,15 +23,20 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     #region Funções Unity
+    /*
     private void Awake()
     {
         //DontDestroyOnLoad(gameObject); // Faz com que o objeto mova entre as scenes
-        AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
+        //AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
     }
+    */
+
+    private void Start() => _fadeVolume = GetComponent<FadeVolume>();
 
     private void Update()
     {
-        AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
+        if (_fadeVolume.enabled == false)
+            AudioListener.volume = PlayerPrefs.GetFloat("masterVolume"); // Alterando o masterVolume com base no PlayerPrefs
 
         // Retomando o progresso da música que estava tocando
         if (curMusicAudioSource != null) musicCurTime = curMusicAudioSource.time;

@@ -54,8 +54,11 @@ public class BillLevelSelector : MonoBehaviour
     #endregion
 
     #region Funções Próprias
-    public void OpenLevel(int levelId)
+    public void OpenLevel(int levelId) => StartCoroutine(LoadOpenLevel(levelId, 0.28f));
+
+    private IEnumerator LoadOpenLevel(int levelId, float t)
     {
+        yield return new WaitForSeconds(t);
         string levelName = "testLevel " + levelId;
         TransitionManager.Instance().Transition(levelName, transitionSettings[MainMenu.CurTransitionIndex],
             transitionDelay);

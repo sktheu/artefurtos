@@ -59,9 +59,12 @@ public class MainMenu : MonoBehaviour
     {
         //Outro jeito de fazer
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Invoke("LoadSelectionMenu", 0.28f);
+    }
 
+    private void LoadSelectionMenu()
+    {
         PauseMenu.menuName = SceneManager.GetActiveScene().name;
-        TransitionManager.Instance().Transition("LevelSelector", transitionSettings[CurTransitionIndex], transitionDelay);
         SceneManager.LoadScene("SelectionMenu");
     }
 

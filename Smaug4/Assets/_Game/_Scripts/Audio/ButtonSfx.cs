@@ -12,13 +12,13 @@ public class ButtonSfx : MonoBehaviour
     #endregion
 
     #region Funções Unity
-    //private void Awake() => _audioManager = GameObject.FindObjectOfType<AudioManager>();
+    private void Awake() => _audioManager = GameObject.FindObjectOfType<AudioManager>();
     #endregion
 
     #region Funções Próprias
     public void PlaySfx()
     {
-        //_audioManager.PlaySFX("confirmar_" + _curSfxIndex);
+        _audioManager.PlaySFX("confirmar_" + _curSfxIndex);
 
         if (_curSfxIndex == 1)
             _curSfxIndex = 2;

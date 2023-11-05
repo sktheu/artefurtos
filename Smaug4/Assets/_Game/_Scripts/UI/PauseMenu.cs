@@ -115,17 +115,11 @@ public class PauseMenu : MonoBehaviour
             verifyAim = 0;*/
     }
 
-    public void LoadMenu()
+    public void LoadMenu() => Invoke("LoadSelectionMenu", 0.28f);
+    
+    private void LoadSelectionMenu()
     {
-
-        TransitionManager.Instance().Transition("LevelSelector", transitionSettings[MainMenu.CurTransitionIndex],
-            transitionDelay);
-
-        if (MainMenu.CurTransitionIndex == 0)
-            MainMenu.CurTransitionIndex = 1;
-        else
-            MainMenu.CurTransitionIndex = 0;
-
+        SceneManager.LoadScene("SelectionMenu");
         Time.timeScale = 1f;
     }
 
