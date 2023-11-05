@@ -1,3 +1,4 @@
+using EasyTransition;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,32 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
-    public Button[] buttons;
+    #region Variáveis Globais
+    // Inspector:
+    [Header("Transição:")]
+    [SerializeField] private TransitionSettings[] transitionSettings = new TransitionSettings[2];
+    [SerializeField] private float transitionDelay;
 
+    [Header("Referências:")]
+    public Button[] buttons;
+    #endregion
+
+    #region Funções Unity
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
+        TransitionManager.Instance().Transition(transitionSettings[MainMenu.CurTransitionIndex],
+            transitionDelay);
+
+        if (MainMenu.CurTransitionIndex == 0)
+            MainMenu.CurTransitionIndex = 1;
+        else
+            MainMenu.CurTransitionIndex = 0;
 
         //Ativando cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        //Desbloqueia o nível 1
         int unlockedLevel;
 
         if (PlayerPrefs.GetInt("UnlockedLevelHasmula") == 0)
@@ -28,7 +44,7 @@ public class LevelSelector : MonoBehaviour
         {
             unlockedLevel = PlayerPrefs.GetInt("UnlockedLevelHasmula");
         }
-        Debug.Log(unlockedLevel);
+        //Debug.Log(unlockedLevel);
 
         //Bloqueia o botão do nível
         for (int i = 0; i < buttons.Length; i++)
@@ -43,10 +59,21 @@ public class LevelSelector : MonoBehaviour
             buttons[i].gameObject.GetComponent<ChangeIcon>().Change();
         }
     }
+    #endregion
 
+    #region Funções Próprias
     public void OpenLevel(int levelId)
     {
         string levelName = "testLevel " + levelId;
-        SceneManager.LoadScene(levelName);
+        TransitionManager.Instance().Transition(levelName, transitionSettings[MainMenu.CurTransitionIndex],
+            transitionDelay);
+
+        if (MainMenu.CurTransitionIndex == 0)
+            MainMenu.CurTransitionIndex = 1;
+        else
+            MainMenu.CurTransitionIndex = 0;
     }
+
+    public void Back() => SceneManager.LoadScene("MainMenu");
+    #endregion
 }

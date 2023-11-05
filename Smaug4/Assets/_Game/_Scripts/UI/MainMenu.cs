@@ -38,6 +38,10 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         TransitionManager.Instance().Transition(transitionSettings[CurTransitionIndex], transitionDelay);
+        if (CurTransitionIndex == 0)
+            CurTransitionIndex = 1;
+        else
+            CurTransitionIndex = 0;
     }
 
     private void Update()

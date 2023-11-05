@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,14 +17,19 @@ public class FadeLevelSelection : MonoBehaviour
 
     // Componentes:
     private Image _img;
+    private Animator _anim;
     #endregion
 
     #region Funções Unity
-    private void Start() => _img = GetComponent<Image>();
+    private void Start()
+    {
+        _img = GetComponent<Image>();
+        _anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
-        ApplyFade(_isOver);
+        _anim.SetBool("mouseColliding", _isOver);
         iconAnim.SetBool("mouseColliding", _isOver);
         VerifyMouse();
     }
@@ -34,7 +38,7 @@ public class FadeLevelSelection : MonoBehaviour
     #region Funções Próprias
     private void VerifyMouse()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, 1f);
 
         if (hit)
         {
@@ -43,20 +47,6 @@ public class FadeLevelSelection : MonoBehaviour
             else
                 _isOver = false;
         }
-    }
-
-    private void ApplyFade(bool hide)
-    {
-        Color color = _img.color;
-        var alpha = color.a;
-
-        if (hide)
-            alpha -= fadeSpeed * Time.deltaTime;
-        else
-            alpha += fadeSpeed * Time.deltaTime;
-
-        color.a = alpha;
-        _img.color = color;
     }
     #endregion
 }
