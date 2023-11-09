@@ -9,7 +9,7 @@ public class HackingPlace : MonoBehaviour
     // Inspector:
     [Header("Configurações:")] 
     [SerializeField] private float disableInterval;
-    [SerializeField] private ChangeDevice device;
+    [SerializeField] private ChangeDevice[] devices;
     
     [Header("Player Input:")]
     [SerializeField] private bool playerColliding = false;
@@ -94,7 +94,10 @@ public class HackingPlace : MonoBehaviour
     private void DisableDevice()
     {
         _spr.sprite = disableSprite;
-        device.Disable();
+        foreach (var d in devices)
+        {
+          d.Disable();
+        }
 
         var nearGuard = GuardBehaviour.Guards[0];
         foreach (var g in GuardBehaviour.Guards)
@@ -116,7 +119,10 @@ public class HackingPlace : MonoBehaviour
 
     private void EnableDevice()
     {
-        device.Enable();
+        foreach (var d in devices)
+        {
+            d.Enable();
+        }
         _canDisable = true;
         _spr.sprite = enableSprite;
     }

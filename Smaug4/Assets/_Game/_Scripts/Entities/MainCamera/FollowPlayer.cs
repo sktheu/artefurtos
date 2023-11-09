@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    #region Variáveis Globais:
+    #region Variáveis Globais
     [Header("Configurações:")]
     public bool CanFollow = true;
     [SerializeField] private Vector3 offset;
@@ -33,7 +33,7 @@ public class FollowPlayer : MonoBehaviour
             Vector3 targetpos = _playerTransf.transform.position + offset;
             Vector3 clampedpos = new Vector3(Mathf.Clamp(targetpos.x, xMin, xMax), Mathf.Clamp(targetpos.y, yMin, yMax), 0);
 
-            SetNewPosition(targetpos);
+            SetNewPosition(clampedpos);
         }
     }
     #endregion
