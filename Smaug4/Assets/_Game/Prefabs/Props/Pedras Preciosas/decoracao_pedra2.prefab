@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1034161965703798543}
   - component: {fileID: 7759989323440508124}
-  - component: {fileID: 3628943847762132624}
+  - component: {fileID: 651478527211249518}
   m_Layer: 0
   m_Name: decoracao_pedra2
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 1946264346, guid: 9d8674ebc86b6014e9a1877bd8ff361c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -84,9 +84,9 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!61 &3628943847762132624
-BoxCollider2D:
+  m_SpriteSortPoint: 1
+--- !u!60 &651478527211249518
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,16 +117,20 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.054011583, y: 0.016026989}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 1.0625, y: 0.90625}
     newSize: {x: 1.0625, y: 0.90625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.76933527, y: 0.87419605}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.37267548, y: -0.1711005}
+      - {x: 0.53463936, y: 0.03592743}
+      - {x: -0.41132054, y: 0.03592743}
+      - {x: -0.288494, y: -0.17110054}
+  m_UseDelaunayMesh: 0
