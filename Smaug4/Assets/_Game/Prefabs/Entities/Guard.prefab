@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 1923335894182694186}
   - component: {fileID: 7276360329950171040}
   - component: {fileID: 319388181245081317}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,6 +877,7 @@ MonoBehaviour:
   - {fileID: 4791082323984356377}
   - {fileID: 9065181736778087438}
   - {fileID: 624516711718802544}
+  CheckPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7276360329950171040
 MonoBehaviour:
   m_ObjectHideFlags: 0
