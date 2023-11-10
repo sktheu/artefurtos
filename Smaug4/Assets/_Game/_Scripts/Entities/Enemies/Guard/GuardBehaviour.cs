@@ -89,19 +89,22 @@ public class GuardBehaviour : MonoBehaviour
     #region Funções Próprias
     public void SetState(GuardStates state)
     {
-        StopAllCoroutines();
         switch (state)
         {
             case GuardStates.Patrol:
+                StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardPatrolState(patrolPoints), patrolSpeed, acceleration);
                 break;
             case GuardStates.Chase:
+                StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardChaseState(GameObject.FindGameObjectWithTag("Player").transform), chaseSpeed, acceleration);
                 break;
             case GuardStates.Check:
+                StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardCheckState(CheckPosition, this), checkSpeed, acceleration);
                 break;
             case GuardStates.Alert:
+                StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardAlertState(PlayerLastPosition.Position), alertSpeed, acceleration);
                 break;
         }

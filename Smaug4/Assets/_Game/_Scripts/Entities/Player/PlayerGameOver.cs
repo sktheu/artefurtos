@@ -30,7 +30,7 @@ public class PlayerGameOver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == _collisionLayersManager.Guards.Index)
+        if (col.gameObject.layer == _collisionLayersManager.Guards.Index && !GameEnded)
         {
             if (transform.position.x > col.gameObject.transform.position.x)
                 _animator.SetTrigger("GameOverLeft");
