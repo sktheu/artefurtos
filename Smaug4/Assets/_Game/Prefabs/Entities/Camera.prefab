@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 8764462292436481998}
   - component: {fileID: 5416354690056514224}
   - component: {fileID: 458177119258024082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCamera: 1
   fovAngle: 90
-  fovRange: 1
+  fovRange: 5
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 3213
 --- !u!114 &8764462292436481998
 MonoBehaviour:
   m_ObjectHideFlags: 0

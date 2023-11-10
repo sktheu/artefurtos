@@ -10,6 +10,7 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private bool isCamera = false;
     [SerializeField] private float fovAngle = 90f;
     [SerializeField] private float fovRange = 8f;
+    [SerializeField] private LayerMask ignoreLayers;
 
     // Referências:
     private Transform _fovPoint;
@@ -42,22 +43,31 @@ public class FieldOfView : MonoBehaviour
     {
         var dir = _target.position - transform.position;
         var angle = Vector3.Angle(dir, _fovPoint.up);
-        var rayHit = Physics2D.Raycast(_fovPoint.position, dir, fovRange);
+        var rayHit = Physics2D.Raycast(_fovPoint.position, dir, fovRange, ~ignoreLayers);
 
-        if (angle < fovAngle / 2 && rayHit)
+        if (angle < fovAngle / 2)
         {
-            // Player Avistado
-            if (rayHit.collider.gameObject.layer == _collisionLayersManager.Player.Index)
+            if (rayHit)
             {
-                if (isCamera)
-                    _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Increase);
+                // Player Avistado
+                if (rayHit.collider.gameObject.layer == _collisionLayersManager.Player.Index)
+                {
+                    if (isCamera)
+                        _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Increase);
+                    
+                    Debug.DrawRay(_fovPoint.position, dir, Color.green);
+                }
+                else
+                {
+                    if (isCamera)
+                        _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Decrease);
+                }
             }
             else
             {
                 if (isCamera)
                     _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Decrease);
             }
-            Debug.DrawRay(_fovPoint.position, dir, Color.green);
         }
     }
     #endregion
