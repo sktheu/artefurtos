@@ -138,9 +138,7 @@ TextureImporter:
       - - {x: -24, y: -24}
         - {x: -24, y: 24}
         - {x: 24, y: 24}
-        - {x: 24, y: 4}
-        - {x: -18, y: 4}
-        - {x: -18, y: -24}
+        - {x: 24, y: -24}
       tessellationDetail: 0
       bones: []
       spriteID: 66cc6f60c863a774fa75812286a2dbcf
@@ -162,8 +160,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 24, y: 4}
-        - {x: -24, y: 4}
+      - - {x: 24, y: -24}
+        - {x: -24, y: -24}
         - {x: -24, y: 24}
         - {x: 24, y: 24}
       tessellationDetail: 0
@@ -187,9 +185,7 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 18, y: -24}
-        - {x: 18, y: 4}
-        - {x: -24, y: 4}
+      - - {x: -24, y: -24}
         - {x: -24, y: 24}
         - {x: 24, y: 24}
         - {x: 24, y: -24}
@@ -288,10 +284,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -24, y: 4}
+      - - {x: -24, y: -24}
         - {x: -24, y: 24}
         - {x: 24, y: 24}
-        - {x: 24, y: 4}
+        - {x: 24, y: -24}
       tessellationDetail: 0
       bones: []
       spriteID: ac43e39fd27b8934795139e969cd5b0a
@@ -313,10 +309,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -24, y: 4}
+      - - {x: -24, y: -24}
         - {x: -24, y: 24}
         - {x: 24, y: 24}
-        - {x: 24, y: 4}
+        - {x: 24, y: -24}
       tessellationDetail: 0
       bones: []
       spriteID: 3b87b50c8cb122a4db6fbdbf02b60e24
@@ -338,10 +334,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -24, y: 4}
+      - - {x: -24, y: -24}
         - {x: -24, y: 24}
         - {x: 24, y: 24}
-        - {x: 24, y: 4}
+        - {x: 24, y: -24}
       tessellationDetail: 0
       bones: []
       spriteID: 91bcc4cdf2e1a0e4ea0d808655e48403
