@@ -27,9 +27,11 @@ public class GuardBehaviour : MonoBehaviour
     [SerializeField] private Transform[] patrolPoints;
 
     [Header("Lanterna:")] 
+    [SerializeField] private GameObject lanternParent;
     [SerializeField] private GameObject[] lanterns = new GameObject[4];
 
-    [Header("Taser:")]
+    [Header("Taser:")] 
+    [SerializeField] private GameObject taserParent;
     [SerializeField] private GameObject[] tasers = new GameObject[4];
 
     // Componentes:
@@ -69,8 +71,7 @@ public class GuardBehaviour : MonoBehaviour
 
         SetState(initialState);
 
-        if (Guards.Count == 0)
-            Guards = GameObject.FindObjectsOfType<GuardBehaviour>().ToList();
+        Guards = GameObject.FindObjectsOfType<GuardBehaviour>().ToList();
     }
 
     private void Start() => _animator = GetComponent<Animator>();
@@ -105,7 +106,7 @@ public class GuardBehaviour : MonoBehaviour
                 break;
             case GuardStates.Alert:
                 StopAllCoroutines();
-                GuardStateMachine.ChangeState(new GuardAlertState(PlayerLastPosition.Position), alertSpeed, acceleration);
+                GuardStateMachine.ChangeState(new GuardAlertState(PlayerLastPosition.Position, this), alertSpeed, acceleration);
                 break;
         }
     }
@@ -114,10 +115,13 @@ public class GuardBehaviour : MonoBehaviour
     {
         if (_agent.hasPath && _agent.velocity.magnitude > 0)
         {
-            var moveDirection = (Vector2)_agent.velocity.normalized;
+            if (_agent.velocity.magnitude > 0.65f)
+            {
+                var moveDirection = (Vector2)_agent.velocity.normalized;
 
-            _animator.SetFloat("moveX", moveDirection.x);
-            _animator.SetFloat("moveY", moveDirection.y);
+                _animator.SetFloat("moveX", moveDirection.x);
+                _animator.SetFloat("moveY", moveDirection.y);
+            }
         }
         else
         {
@@ -132,6 +136,8 @@ public class GuardBehaviour : MonoBehaviour
         {
             if (GuardStateMachine.CompareState(typeof(GuardChaseState)))
             {
+                lanternParent.SetActive(false);
+                taserParent.SetActive(true);
                 foreach (var t in tasers)
                 {
                     if (t.name == name)
@@ -142,6 +148,8 @@ public class GuardBehaviour : MonoBehaviour
             }
             else
             {
+                taserParent.SetActive(false);
+                lanternParent.SetActive(true);
                 foreach (var l in lanterns)
                 {
                     if (l.name == name)

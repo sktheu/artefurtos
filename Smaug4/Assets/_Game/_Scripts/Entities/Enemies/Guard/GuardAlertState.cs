@@ -6,12 +6,14 @@ public class GuardAlertState : GuardState
 {
     #region Variáveis Globais
     private Vector3 _lastPlayerPos;
+    private GuardBehaviour _guardBehaviour;
     #endregion
 
     #region Funções Próprias
-    public GuardAlertState(Vector3 lastPlayerPos)
+    public GuardAlertState(Vector3 lastPlayerPos, GuardBehaviour guardbehaviour)
     {
-        _lastPlayerPos = lastPlayerPos;
+        this._lastPlayerPos = lastPlayerPos;
+        this._guardBehaviour = guardbehaviour;
     }
 
     public override void Execute()
@@ -20,9 +22,7 @@ public class GuardAlertState : GuardState
         base.StateMachine.Agent.SetDestination(_lastPlayerPos);
 
         if (base.HasReachPoint())
-        {
-            // Chame a função que troque a direção em que o guarda está olhando
-        }
+            _guardBehaviour.ReachedCheckPos();
     }
     #endregion
 }

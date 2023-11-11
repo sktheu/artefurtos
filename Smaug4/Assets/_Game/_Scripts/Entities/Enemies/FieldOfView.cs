@@ -54,7 +54,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     if (isCamera)
                         _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Increase);
-                    
+
                     Debug.DrawRay(_fovPoint.position, dir, Color.green);
                 }
                 else
