@@ -36,7 +36,7 @@ public class HackingPlace : MonoBehaviour
     private void Awake()
     {
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
-        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -68,7 +68,7 @@ public class HackingPlace : MonoBehaviour
             else
                 _playerAnimator.SetTrigger("HackingRight");
 
-            //_audioManager.PlaySFX("estacao_hack");
+            _audioManager.PlaySFX("estacao_hack");
         }
     }
 
@@ -77,10 +77,7 @@ public class HackingPlace : MonoBehaviour
         if (collision.gameObject.layer == _collisionLayersManager.Player.Index)
             playerColliding = true;
         else if (collision.gameObject.layer == _collisionLayersManager.Guards.Index)
-        {
-            //_audioManager.PlaySFX("estacao_hack");
             EnableDevice();
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -119,6 +116,7 @@ public class HackingPlace : MonoBehaviour
 
     private void EnableDevice()
     {
+        _audioManager.PlaySFX("estacao_hack");
         foreach (var d in devices)
         {
             d.Enable();

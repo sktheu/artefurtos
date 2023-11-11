@@ -869,11 +869,13 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
+  lanternParent: {fileID: 5770304598129098276}
   lanterns:
   - {fileID: 7693755296829417998}
   - {fileID: 1128256786676615867}
   - {fileID: 3180549134129626165}
   - {fileID: 6052187225111202540}
+  taserParent: {fileID: 2083798671330859375}
   tasers:
   - {fileID: 160230829809184798}
   - {fileID: 4791082323984356377}
@@ -892,9 +894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43be30c0fb42db94b983c53af388b303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 0
-  increment: 0
-  decrement: 0
+  maxValue: 5
+  increment: 2
+  decrement: 2
 --- !u!95 &319388181245081317
 Animator:
   serializedVersion: 5
