@@ -27,7 +27,7 @@ public class CallGuards : MonoBehaviour
     #endregion
 
     #region Funções Unity
-    private void Awake() => _audioManager = GameObject.FindObjectOfType<AudioManager>();
+    //private void Awake() => _audioManager = GameObject.FindObjectOfType<AudioManager>();
 
     //private void Update() => print(_currentAlertProgress);
     #endregion
@@ -39,13 +39,14 @@ public class CallGuards : MonoBehaviour
         {
             _currentAlertProgress = Mathf.Clamp(_currentAlertProgress + alertIncrement * Time.deltaTime, 0f, maxAlertProgress);
 
-            
+            /*
             if (_canPlaySfx)
             {
                 _canPlaySfx = false;
                 _audioManager.PlaySFX("chamando_guardas");
                 StartCoroutine(SetSfxInterval(3f));
             }
+            */
 
             if (_currentAlertProgress >= maxAlertProgress) // Player totalmente avistado
             {
