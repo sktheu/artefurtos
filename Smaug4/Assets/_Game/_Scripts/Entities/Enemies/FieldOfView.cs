@@ -32,6 +32,7 @@ public class FieldOfView : MonoBehaviour
             _cameraAlertScript = null;
 
         _fovPoint = transform.Find("FOV Point").transform;
+
         _target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

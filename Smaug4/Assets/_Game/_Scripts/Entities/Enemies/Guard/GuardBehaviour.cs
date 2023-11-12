@@ -34,6 +34,9 @@ public class GuardBehaviour : MonoBehaviour
     [SerializeField] private GameObject taserParent;
     [SerializeField] private GameObject[] tasers = new GameObject[4];
 
+    [Header("FOV:")] 
+    [SerializeField] private Transform fovParentTransform;
+
     // Componentes:
     private NavMeshAgent _agent;
     private Animator _animator;
@@ -76,8 +79,12 @@ public class GuardBehaviour : MonoBehaviour
 
     private void Start() => _animator = GetComponent<Animator>();
 
-    private void Update() => Animate();       
-    
+    private void Update()
+    {
+        Animate();
+        ChangeFOV();
+    }
+
     private void FixedUpdate()
     {
         GuardStateMachine.ExecuteState();
@@ -95,18 +102,22 @@ public class GuardBehaviour : MonoBehaviour
             case GuardStates.Patrol:
                 StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardPatrolState(patrolPoints), patrolSpeed, acceleration);
+                DefaultHoldItem(true);
                 break;
             case GuardStates.Chase:
                 StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardChaseState(GameObject.FindGameObjectWithTag("Player").transform), chaseSpeed, acceleration);
+                DefaultHoldItem(false);
                 break;
             case GuardStates.Check:
                 StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardCheckState(CheckPosition, this), checkSpeed, acceleration);
+                DefaultHoldItem(true);
                 break;
             case GuardStates.Alert:
                 StopAllCoroutines();
                 GuardStateMachine.ChangeState(new GuardAlertState(PlayerLastPosition.Position, this), alertSpeed, acceleration);
+                DefaultHoldItem(true);
                 break;
         }
     }
@@ -163,12 +174,63 @@ public class GuardBehaviour : MonoBehaviour
         }
     }
 
+    private void DefaultHoldItem(bool isLantern)
+    {
+        GameObject[] items;
+        if (isLantern)
+        {
+            lanternParent.SetActive(true);
+            taserParent.SetActive(false);
+            items = lanterns;
+        }
+        else
+        {   
+            taserParent.SetActive(true);
+            lanternParent.SetActive(false);
+            items = tasers;
+        }
+
+        var moveDirection = (Vector2)_agent.velocity.normalized;
+        var desiredItem = "";
+
+        if (moveDirection.x > 0)
+            desiredItem = "Right";
+        else if (moveDirection.x < 0)
+            desiredItem = "Left";
+        else if (moveDirection.y > 0)
+            desiredItem = "Up";
+        else
+            desiredItem = "Down";
+
+        foreach (var i in items)
+        {
+            if (i.name.Contains(desiredItem))
+                i.SetActive(true);
+            else
+                i.SetActive(false);
+        }
+    }
+
     public void ReachedCheckPos() => StartCoroutine(SetCheckPosInterval(Random.Range(5f, 10f)));
 
     private IEnumerator SetCheckPosInterval(float t)
     {
         yield return new WaitForSeconds(t);
         SetState(GuardStates.Patrol);
+    }
+
+    private void ChangeFOV()
+    {
+        var moveDirection = (Vector2)_agent.velocity.normalized;
+
+        if (moveDirection.x > 0)
+            fovParentTransform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        else if (moveDirection.x < 0)
+            fovParentTransform.rotation = Quaternion.Euler(0f, 0f, -90f);
+        else if (moveDirection.y > 0)
+            fovParentTransform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        else
+            fovParentTransform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
     #endregion
 }
