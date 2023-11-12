@@ -15,11 +15,30 @@ public class LevelManager : MonoBehaviour
     [Header("Transição:")]
     [SerializeField] private TransitionSettings transitionSettings;
     [SerializeField] private float loadTime;
-    
+    [SerializeField] private TransitionSettings[] firstTransitionSettings = new TransitionSettings[2];
+    [SerializeField] private float firstTransitionDelay;
+
+    [Header("Configurações:")] 
+    [SerializeField] private bool isGame = false;
+
+    public static bool FirstTime = true;
+
     private enum CharacterType
     {
         Bill,
         Hasmula
+    }
+    #endregion
+
+    #region Funções Unity
+    private void Start()
+    {
+        if (isGame && FirstTime)
+        {
+            TransitionManager.Instance().Transition(firstTransitionSettings[MainMenu.CurTransitionIndex],
+                firstTransitionDelay);
+            FirstTime = false;
+        }
     }
     #endregion
 

@@ -45,8 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7e1c2c4e8e80540aa7f7c0e1e40c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevel: 0
+  characterType: 0
   transitionSettings: {fileID: 11400000, guid: b0126e1e0c6c2a04895d564bd230dfb9, type: 2}
   loadTime: 0.25
+  firstTransitionSettings:
+  - {fileID: 11400000, guid: d641980330b54c243a644222c797e582, type: 2}
+  - {fileID: 11400000, guid: 3ad3e86dc386e60458fda4c93a2c3d62, type: 2}
+  firstTransitionDelay: 0
+  isGame: 0
 --- !u!1 &3995456644288559988
 GameObject:
   m_ObjectHideFlags: 0

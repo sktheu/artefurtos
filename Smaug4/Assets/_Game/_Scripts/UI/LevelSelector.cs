@@ -22,6 +22,7 @@ public class LevelSelector : MonoBehaviour
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
+        LevelManager.FirstTime = true;
         TransitionManager.Instance().Transition(transitionSettings[MainMenu.CurTransitionIndex],
             transitionDelay);
 
