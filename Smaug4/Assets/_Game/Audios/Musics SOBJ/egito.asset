@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: egito
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 78a6044445eb0cb4097811dd37c07da0, type: 3}
-  Volume: 1
+  Volume: 0.35

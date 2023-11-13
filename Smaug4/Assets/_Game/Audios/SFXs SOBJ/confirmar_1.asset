@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: confirmar_1
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 1853ae6eed0490a479251ca7250df367, type: 3}
-  Volume: 1
+  Volume: 0.35
   Pitch: 1

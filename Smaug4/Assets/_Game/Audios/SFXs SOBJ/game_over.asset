@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: game_over
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: b55256495490b3c45a01fee625e6646f, type: 3}
-  Volume: 1
+  Volume: 0.5
   Pitch: 1

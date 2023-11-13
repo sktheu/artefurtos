@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: bola_colisao
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 8309b1a1b15905f45ae2cbd63dbe00ee, type: 3}
-  Volume: 1
+  Volume: 0.2
   Pitch: 1

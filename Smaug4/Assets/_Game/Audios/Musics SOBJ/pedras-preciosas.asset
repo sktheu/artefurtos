@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: pedras-preciosas
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: dde918bde7e3f274d8b5bdcba10203f2, type: 3}
-  Volume: 1
+  Volume: 0.35

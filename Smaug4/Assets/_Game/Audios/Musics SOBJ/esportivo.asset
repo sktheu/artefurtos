@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: esportivo
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 290d8aaf2a35d5e4ea6f3872b751b38e, type: 3}
-  Volume: 1
+  Volume: 0.35

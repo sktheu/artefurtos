@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: medieval
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 34b60c25044a20b4eab66b678f346ed2, type: 3}
-  Volume: 1
+  Volume: 0.35

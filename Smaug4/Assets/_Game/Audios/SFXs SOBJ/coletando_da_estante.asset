@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: coletando_da_estante
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: fd64d13c3a51f3f4a8366e8dce5f075e, type: 3}
-  Volume: 1
+  Volume: 0.6
   Pitch: 1

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: estacao_hack
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: ea2423a982c656549a08710395a13132, type: 3}
-  Volume: 1
+  Volume: 0.2
   Pitch: 1

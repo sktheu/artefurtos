@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: espaco
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 4871e6cb524db164e94fcf49687e0e16, type: 3}
-  Volume: 1
+  Volume: 0.35

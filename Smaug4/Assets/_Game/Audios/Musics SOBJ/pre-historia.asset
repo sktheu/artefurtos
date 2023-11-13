@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: pre-historia
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 90b907ba5bb9f604692109ae54b8b7d0, type: 3}
-  Volume: 1
+  Volume: 0.35

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: chamando_guardas
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 96719269798c9fc4a96d8916cdeedee9, type: 3}
-  Volume: 1
+  Volume: 0.8
   Pitch: 1

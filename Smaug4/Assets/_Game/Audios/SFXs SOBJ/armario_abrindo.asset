@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: armario_abrindo
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: e09a02624b478fb498355e8bb7e871b9, type: 3}
-  Volume: 1
+  Volume: 0.7
   Pitch: 1

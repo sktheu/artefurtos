@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: mochila_depositando_1
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 22496c6cfa8ce5b418a3a4fae30b8547, type: 3}
-  Volume: 1
+  Volume: 0.28
   Pitch: 1
