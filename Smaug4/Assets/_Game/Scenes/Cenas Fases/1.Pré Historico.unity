@@ -618,27 +618,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3104551613691969313, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.999962
+      value: -0.99994075
       objectReference: {fileID: 0}
     - target: {fileID: 3104551613691969313, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.008726558
+      value: -0.008726372
       objectReference: {fileID: 0}
     - target: {fileID: 3104551613691969313, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.000056833112
       objectReference: {fileID: 0}
     - target: {fileID: 3104551613691969313, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.0065124133
       objectReference: {fileID: 0}
     - target: {fileID: 3104551613691969313, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3687511514334216490, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
+      propertyPath: fovRange
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4180398384528023365, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 6.354699
+      value: 7.799873
       objectReference: {fileID: 0}
     - target: {fileID: 4487941918447770874, guid: 0611e2b0d45ad2442a143846a0c501d6, type: 3}
       propertyPath: m_Name
@@ -1314,7 +1318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3464083396364802617, guid: d2396a3b7530df84ea6bdfb5ee6d8e0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.44
+      value: 10.35
       objectReference: {fileID: 0}
     - target: {fileID: 3464083396364802617, guid: d2396a3b7530df84ea6bdfb5ee6d8e0f, type: 3}
       propertyPath: m_LocalPosition.z
