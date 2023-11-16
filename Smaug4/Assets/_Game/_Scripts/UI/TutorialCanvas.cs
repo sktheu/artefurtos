@@ -6,7 +6,7 @@ public class TutorialCanvas : MonoBehaviour
 {
     void Start()
     {
-        TutorialStart();
+        StartCoroutine(ChamarStart());
     }
 
     private void TutorialStart()
@@ -21,6 +21,13 @@ public class TutorialCanvas : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    //Corrotina para não travar a transição no início da fase
+    IEnumerator ChamarStart()
+    {
+        yield return new WaitForSeconds(2.5f);
+        TutorialStart();
     }
 
 }
