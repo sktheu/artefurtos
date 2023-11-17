@@ -37,9 +37,13 @@ public class GuardBehaviour : MonoBehaviour
     [Header("FOV:")] 
     [SerializeField] private Transform fovParentTransform;
 
+    [Header("Interagir Estação de Hacking:")] 
+    [SerializeField] private Sprite[] hackingPlaceSprites;
+
     // Componentes:
     private NavMeshAgent _agent;
     private Animator _animator;
+    private SpriteRenderer _spr;
 
     // StateMachine Variáveis:
     public GuardStateMachine GuardStateMachine;
@@ -52,6 +56,9 @@ public class GuardBehaviour : MonoBehaviour
 
     // Guardas:
     public static List<GuardBehaviour> Guards = new List<GuardBehaviour>();
+
+    // Hacking Place:
+    [HideInInspector] public bool IsInHackingPlace = false;
 
     public enum GuardStates
     {
@@ -77,11 +84,19 @@ public class GuardBehaviour : MonoBehaviour
         Guards = GameObject.FindObjectsOfType<GuardBehaviour>().ToList();
     }
 
-    private void Start() => _animator = GetComponent<Animator>();
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _spr = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
-        Animate();
+        if (!IsInHackingPlace)
+            Animate();
+        else
+            AnimateInHackingPlace();
+
         ChangeFOV();
     }
 
@@ -231,6 +246,21 @@ public class GuardBehaviour : MonoBehaviour
             fovParentTransform.rotation = Quaternion.Euler(0f, 0f, 180f);
         else
             fovParentTransform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+
+    private void AnimateInHackingPlace()
+    {
+        _animator.enabled = false;
+
+        if (gameObject.name.Contains("Guard 2"))
+            _spr.sprite = hackingPlaceSprites[2];
+        else if (gameObject.name.Contains("Guard 1"))
+            _spr.sprite = hackingPlaceSprites[1];
+        else
+            _spr.sprite = hackingPlaceSprites[0];
+
+        lanternParent.gameObject.SetActive(false);
+        fovParentTransform.gameObject.SetActive(false);
     }
     #endregion
 }

@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b321e0af6d33101479e0a0e57c6548a3, type: 3}
+    - target: {fileID: 1923335894182694186, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
+      propertyPath: hackingPlaceSprite
+      value: 
+      objectReference: {fileID: 1528023734, guid: 9b833540b77a95747aade5c47d15a0fd, type: 3}
     - target: {fileID: 4716613263963362394, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
       propertyPath: m_Name
       value: Guard 1 Variant

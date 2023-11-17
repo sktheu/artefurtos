@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class HackingPlace : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class HackingPlace : MonoBehaviour
     private static AudioManager _audioManager;
 
     private bool _canDisable = true;
+
+    private NavMeshAgent _guardAgent;
+    private bool _guardInteracting = false;
     #endregion
 
     #region Funções Unity
@@ -70,6 +74,9 @@ public class HackingPlace : MonoBehaviour
 
             //_audioManager.PlaySFX("estacao_hack");
         }
+
+        if (_guardAgent != null)
+            AnimateGuardInHackingPlace();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -106,6 +113,7 @@ public class HackingPlace : MonoBehaviour
 
         nearGuard.CheckPosition = transform.position;
         nearGuard.SetState(GuardBehaviour.GuardStates.Check);
+        _guardAgent = nearGuard.GetComponent<NavMeshAgent>();
     }
 
     private IEnumerator SetDisableInterval(float t)
@@ -123,6 +131,23 @@ public class HackingPlace : MonoBehaviour
         }
         _canDisable = true;
         _spr.sprite = enableSprite;
+    }
+
+    private void AnimateGuardInHackingPlace()
+    {
+        var behaviour = _guardAgent.gameObject.GetComponent<GuardBehaviour>();
+        if (_guardAgent.velocity.magnitude == 0f)
+        {
+            behaviour.IsInHackingPlace = true;
+            _guardInteracting = true;
+        }
+        else if (_guardInteracting)
+        {
+            _guardAgent.gameObject.GetComponent<Animator>().enabled = true;
+            _guardAgent = null;
+            _guardInteracting = false;
+            behaviour.IsInHackingPlace = false;
+        }
     }
     #endregion
 }

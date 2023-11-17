@@ -3597,10 +3597,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: grade_lateral
       objectReference: {fileID: 0}
-    - target: {fileID: 3720891339773245829, guid: ca94a60326695a548bc025e61316edc9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11836,7 +11832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3720891339773245829, guid: ca94a60326695a548bc025e61316edc9, type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20308,7 +20304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3720891339773245829, guid: ca94a60326695a548bc025e61316edc9, type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23559,7 +23555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3720891339773245829, guid: ca94a60326695a548bc025e61316edc9, type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23811,7 +23807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7165329796555297198, guid: 98e3f9a97190d7647965924311562a83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.99
+      value: -11.05
       objectReference: {fileID: 0}
     - target: {fileID: 7165329796555297198, guid: 98e3f9a97190d7647965924311562a83, type: 3}
       propertyPath: m_LocalPosition.y

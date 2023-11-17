@@ -13,6 +13,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 6cca7a56685b1884fac098a20f952c75, type: 2}
     - target: {fileID: 920007519639370482, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 920007519639370482, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 920007519639370482, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -64,6 +72,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1923335894182694186, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
+      propertyPath: hackingPlaceSprite
+      value: 
+      objectReference: {fileID: 504882179, guid: 3a6672f5664944c4c909845ebdcbde02, type: 3}
     - target: {fileID: 4716613263963362394, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
       propertyPath: m_Name
       value: Guard 2 Variant
