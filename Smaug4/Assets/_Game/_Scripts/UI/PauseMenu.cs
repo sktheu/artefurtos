@@ -98,7 +98,7 @@ public class PauseMenu : MonoBehaviour
     {
         canvasMenu.SetActive(true);
         pauseMenu.SetActive(true);
-        staminaCanvas.SetActive(false);
+        if (staminaCanvas != null) staminaCanvas.SetActive(false);
         Time.timeScale = 0f;
         gamePaused = true;
         Cursor.visible = true;
