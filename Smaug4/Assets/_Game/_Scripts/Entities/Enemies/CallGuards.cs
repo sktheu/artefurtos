@@ -69,6 +69,8 @@ public class CallGuards : MonoBehaviour
         else
         {
             _currentAlertProgress = maxAlertProgress;
+            // Chamar os Guardas
+            ChangeGuards();
         }
     }
 

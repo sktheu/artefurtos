@@ -7,6 +7,7 @@ public class ChangeDevice : MonoBehaviour
 {
     [Header("Configurações:")] 
     [SerializeField] private Color disableColor;
+    public bool CanCallGuards = true;
 
     [Header("Camera:")] 
     [SerializeField] private Sprite cameraEnable;

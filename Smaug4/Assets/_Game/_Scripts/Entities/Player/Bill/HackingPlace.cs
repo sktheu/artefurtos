@@ -127,7 +127,8 @@ public class HackingPlace : MonoBehaviour
         //_audioManager.PlaySFX("estacao_hack");
         foreach (var d in devices)
         {
-            d.Enable();
+            if (d.CanCallGuards)
+                d.Enable();
         }
         _canDisable = true;
         _spr.sprite = enableSprite;

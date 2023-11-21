@@ -376,3 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableColor: {r: 0.20652366, g: 0.8584906, b: 0.8085409, a: 1}
+  CanCallGuards: 0
+  cameraEnable: {fileID: 0}
+  cameraDisable: {fileID: 0}
