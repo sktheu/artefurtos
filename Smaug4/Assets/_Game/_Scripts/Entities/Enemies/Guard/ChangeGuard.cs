@@ -35,8 +35,8 @@ public class ChangeGuard : MonoBehaviour
         }
         else
         {
-            _currentValue = Mathf.Clamp(_currentValue - decrement * Time.deltaTime, 0f, maxValue);
-            VerifyDecrease();
+            //_currentValue = Mathf.Clamp(_currentValue - decrement * Time.deltaTime, 0f, maxValue);
+            //VerifyDecrease();
         }
     }
 

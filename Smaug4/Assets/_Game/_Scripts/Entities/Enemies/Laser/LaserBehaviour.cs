@@ -69,7 +69,12 @@ public class LaserBehaviour : MonoBehaviour
     private void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.layer == _collisionLayersManager.Player.Index)
-            _alertScript.ChangeAlertProgress(CallGuards.AlertModifier.Increase);
+        {
+            foreach (var g in GuardBehaviour.Guards)
+            {
+                g.SetState(GuardBehaviour.GuardStates.Chase);
+            }
+        }
     }
     #endregion
 
