@@ -36,7 +36,6 @@ public class HackingPlace : MonoBehaviour
     #endregion
 
     #region Funções Unity
-
     private void Awake()
     {
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
@@ -64,7 +63,12 @@ public class HackingPlace : MonoBehaviour
         if (_canDisable && keyPressed && playerColliding)
         {
             _canDisable = false;
-            DisableDevice();
+
+            if (devices[devices.Length -1].CanCallGuards)
+                DisableDevice();
+            else
+                DisableDevice(false);
+
             StartCoroutine(SetDisableInterval(disableInterval));
 
             if (transform.position.x < _playerAnimator.gameObject.transform.position.x)
@@ -95,25 +99,28 @@ public class HackingPlace : MonoBehaviour
     #endregion
 
     #region Funções Próprias
-    private void DisableDevice()
+    private void DisableDevice(bool canCallGuards=true)
     {
         _spr.sprite = disableSprite;
         foreach (var d in devices)
         {
-          d.Disable();
+            d.Disable();
         }
 
-        var nearGuard = GuardBehaviour.Guards[0];
-        foreach (var g in GuardBehaviour.Guards)
+        if (canCallGuards)
         {
-            if (Vector3.Distance(g.transform.position, transform.position) <
-                Vector3.Distance(nearGuard.transform.position, transform.position))
-                nearGuard = g;
-        }
+            var nearGuard = GuardBehaviour.Guards[0];
+            foreach (var g in GuardBehaviour.Guards)
+            {
+                if (Vector3.Distance(g.transform.position, transform.position) <
+                    Vector3.Distance(nearGuard.transform.position, transform.position))
+                    nearGuard = g;
+            }
 
-        nearGuard.CheckPosition = transform.position;
-        nearGuard.SetState(GuardBehaviour.GuardStates.Check);
-        _guardAgent = nearGuard.GetComponent<NavMeshAgent>();
+            nearGuard.CheckPosition = transform.position;
+            nearGuard.SetState(GuardBehaviour.GuardStates.Check);
+            _guardAgent = nearGuard.GetComponent<NavMeshAgent>();
+        }
     }
 
     private IEnumerator SetDisableInterval(float t)
