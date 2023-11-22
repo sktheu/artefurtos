@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour
     {
         canvasMenu.SetActive(false);
         optionsMenuUI.SetActive(false);
-        staminaCanvas.SetActive(true);
+        if (staminaCanvas != null) staminaCanvas.SetActive(true);
         Time.timeScale = 1f;
         gamePaused = false;
         Cursor.visible = false;
@@ -130,6 +130,5 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         _levelManager.Restart();
     }
-
     #endregion
 }
