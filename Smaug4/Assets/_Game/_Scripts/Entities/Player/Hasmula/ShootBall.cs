@@ -30,7 +30,7 @@ public class ShootBall : MonoBehaviour
     private Vector2 _aimDir;
 
     // Balls:
-    private int _ballCurCount;
+    public int _ballCurCount;
     private int ballLastCount;
     
     // Animators:
