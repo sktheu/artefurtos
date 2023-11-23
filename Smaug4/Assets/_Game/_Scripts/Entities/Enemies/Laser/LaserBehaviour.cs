@@ -167,6 +167,8 @@ public class LaserBehaviour : MonoBehaviour
     {
         if (_rb != null)
          _rb.velocity = Vector2.zero;
+
+        _boxCollider.enabled = false;
     }
 
     private void RespawnLaser()

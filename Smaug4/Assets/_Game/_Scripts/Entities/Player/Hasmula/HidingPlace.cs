@@ -19,6 +19,7 @@ public class HidingPlace : MonoBehaviour
     private Rigidbody2D _playerRb;
     private Renderer _playerRenderer;
     private Animator _animator;
+    private BoxCollider2D _playerBoxCollider;
     private Animator _HPanimator;
     private PlayerGameOver _playerGameOver;
 
@@ -36,6 +37,7 @@ public class HidingPlace : MonoBehaviour
         _playerRenderer = player.GetComponent<Renderer>();
         _playerMagroMov = player.GetComponent<PlayerMagroMov>();
         _playerRb = player.GetComponent<Rigidbody2D>(); 
+        _playerBoxCollider = player.GetComponent<BoxCollider2D>();
         _animator = player.GetComponent<Animator>();
         _HPanimator = GetComponent<Animator>();
         _playerGameOver = player.GetComponent<PlayerGameOver>();
@@ -86,6 +88,7 @@ public class HidingPlace : MonoBehaviour
             foreach (var g in GuardBehaviour.Guards)
                 g.SetState(GuardBehaviour.GuardStates.Patrol);
 
+            _playerBoxCollider.enabled = false;
             _playerRenderer.enabled = false;
             isHidden = true;
             keyPressed = false;
@@ -104,6 +107,7 @@ public class HidingPlace : MonoBehaviour
     {
         if (playerColliding == true && keyPressed == true && isHidden == true)
         {
+            _playerBoxCollider.enabled = true;
             _playerRenderer.enabled = true;
             isHidden = false;
             keyPressed = false;

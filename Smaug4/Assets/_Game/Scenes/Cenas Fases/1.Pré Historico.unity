@@ -8823,6 +8823,10 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1656634536}
+    - target: {fileID: 6502089005140069929, guid: ff71dd9c4a0f48c489147fad9b9b3f4d, type: 3}
+      propertyPath: hackingPlaceSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1523759139, guid: 61cd95b8e119a2f48a3c995b984f8306, type: 3}
     - target: {fileID: 6659608306271378834, guid: ff71dd9c4a0f48c489147fad9b9b3f4d, type: 3}
       propertyPath: m_Enabled
       value: 1

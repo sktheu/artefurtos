@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: hackingPlaceSprite
       value: 
       objectReference: {fileID: 1528023734, guid: 9b833540b77a95747aade5c47d15a0fd, type: 3}
+    - target: {fileID: 1923335894182694186, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
+      propertyPath: hackingPlaceSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1528023734, guid: 9b833540b77a95747aade5c47d15a0fd, type: 3}
+    - target: {fileID: 1923335894182694186, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
+      propertyPath: hackingPlaceSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1528023734, guid: 9b833540b77a95747aade5c47d15a0fd, type: 3}
     - target: {fileID: 4716613263963362394, guid: 68b242f05cc70264784bda801fc052fb, type: 3}
       propertyPath: m_Name
       value: Guard 1 Variant
