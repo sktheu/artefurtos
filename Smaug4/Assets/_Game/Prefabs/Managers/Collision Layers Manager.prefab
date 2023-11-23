@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerLaserFlip:
     _layerIndex: 3
+  TriggerLaserSpawn:
+    _layerIndex: 14
   Player:
     _layerIndex: 6
   Guards:

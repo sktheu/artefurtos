@@ -17,6 +17,9 @@ public class LaserBehaviour : MonoBehaviour
     [SerializeField] private float enableSpeed;
     [SerializeField] private float disableSpeed;
 
+    [Header("Respawn:")]
+    [SerializeField] private Transform respawnPoint;
+
     // Referências:
     private static CollisionLayersManager _collisionLayersManager;
 
@@ -33,6 +36,8 @@ public class LaserBehaviour : MonoBehaviour
     private float _defaultIntensity;
     private bool _canChangeLight;
     private bool _decreasing;
+
+    
     public enum LaserState { On, Off }
     #endregion
 
@@ -64,6 +69,8 @@ public class LaserBehaviour : MonoBehaviour
     {
         if (col.gameObject.layer == _collisionLayersManager.TriggerLaserFlip.Index)
             FlipMoveDirection();
+        else if (col.gameObject.layer == _collisionLayersManager.TriggerLaserSpawn.Index)
+            RespawnLaser();
     }
 
     private void OnTriggerStay2D(Collider2D col)
@@ -71,9 +78,7 @@ public class LaserBehaviour : MonoBehaviour
         if (col.gameObject.layer == _collisionLayersManager.Player.Index)
         {
             foreach (var g in GuardBehaviour.Guards)
-            {
                 g.SetState(GuardBehaviour.GuardStates.Chase);
-            }
         }
     }
     #endregion
@@ -149,6 +154,21 @@ public class LaserBehaviour : MonoBehaviour
     {
         if (_rb != null)
          _rb.velocity = Vector2.zero;
+    }
+
+    private void RespawnLaser()
+    {
+        canMove = false;
+        _rb.velocity = Vector2.zero;
+        ChangeState(LaserState.Off);
+        Invoke("ResetLaser", 3f);
+    }
+
+    private void ResetLaser()
+    {
+        ChangeState(LaserState.On);
+        canMove = true;
+        transform.position = respawnPoint.position;
     }
     #endregion
 }
