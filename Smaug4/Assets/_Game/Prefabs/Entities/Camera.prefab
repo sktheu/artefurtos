@@ -315,7 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCamera: 1
   fovAngle: 90
-  fovRange: 5
+  fovRange: 6
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 3213
