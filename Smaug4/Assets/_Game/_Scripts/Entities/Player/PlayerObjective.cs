@@ -28,7 +28,7 @@ public class PlayerObjective : MonoBehaviour
     private void Awake()
     {
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
-        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
         _treasuresLeft = GameObject.FindObjectsOfType<TreasureBehaviour>().Length;
         _backpackAnimator = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Animator>();
         _levelManager = GameObject.FindObjectOfType<LevelManager>();
@@ -62,14 +62,14 @@ public class PlayerObjective : MonoBehaviour
         if (_treasuresLeft <= 0)
         {
             _treasuresLeft = 0;
-            //_audioManager.PlaySFX("game_win");
+            _audioManager.PlaySFX("game_win");
             _levelManager.End();
         }
     }
 
     private IEnumerator SetDepositInterval(float t)
     {
-        //_audioManager.PlaySFX("mochila_depositando_" + _curSfxIndex);
+        _audioManager.PlaySFX("mochila_depositando_" + _curSfxIndex);
         yield return new WaitForSeconds(t);
         _canDeposit = true;
         _curSfxIndex++;

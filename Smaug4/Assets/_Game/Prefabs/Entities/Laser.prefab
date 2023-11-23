@@ -345,8 +345,9 @@ MonoBehaviour:
   moveSpeed: 0
   initialMoveDir: {x: 0, y: 0}
   initialState: 0
-  enableSpeed: 20
-  disableSpeed: 20
+  enableSpeed: 30
+  disableSpeed: 30
+  respawnPoint: {fileID: 0}
 --- !u!114 &4371159555535013921
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class HidingPlace : MonoBehaviour
     #region Unity Functions
     void Start()
     {
-        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
 
         //Puxando muitos componentes do player
         isHidden = false;
@@ -83,6 +83,9 @@ public class HidingPlace : MonoBehaviour
         //some o player
         if (playerColliding == true && keyPressed == true && isHidden == false)
         {
+            foreach (var g in GuardBehaviour.Guards)
+                g.SetState(GuardBehaviour.GuardStates.Patrol);
+
             _playerRenderer.enabled = false;
             isHidden = true;
             keyPressed = false;
@@ -93,7 +96,7 @@ public class HidingPlace : MonoBehaviour
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);
-            //_audioManager.PlaySFX("armario_abrindo");
+            _audioManager.PlaySFX("armario_abrindo");
         }
     }
 
@@ -113,7 +116,7 @@ public class HidingPlace : MonoBehaviour
             _animator.SetFloat("Horizontal", 0f);
             _animator.SetFloat("Vertical", 0f);
             _animator.SetBool("IsWalking", false);
-            //_audioManager.PlaySFX("armario_fechando");
+            _audioManager.PlaySFX("armario_fechando");
         }
     }
 

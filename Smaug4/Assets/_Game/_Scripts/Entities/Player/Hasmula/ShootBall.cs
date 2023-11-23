@@ -42,7 +42,7 @@ public class ShootBall : MonoBehaviour
     private void Awake()
     {
         _ballCurCount = ballInitialCount;
-        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -94,7 +94,7 @@ public class ShootBall : MonoBehaviour
                 IsAiming = false;
                 _playerMove.CanMove = true;
                 _ballCurCount--;
-                //_audioManager.PlaySFX("hasmula_baseball_bat");
+                _audioManager.PlaySFX("hasmula_baseball_bat");
             }
             else
             {

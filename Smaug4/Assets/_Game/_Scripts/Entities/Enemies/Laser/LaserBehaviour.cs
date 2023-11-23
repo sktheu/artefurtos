@@ -22,6 +22,7 @@ public class LaserBehaviour : MonoBehaviour
 
     // Referências:
     private static CollisionLayersManager _collisionLayersManager;
+    private AudioManager _audioManager;
 
     // Componentes:
     private Light2D _light;
@@ -37,12 +38,17 @@ public class LaserBehaviour : MonoBehaviour
     private bool _canChangeLight;
     private bool _decreasing;
 
-    
+    // SFX:
+    private bool _canPlaySfx = true;
     public enum LaserState { On, Off }
     #endregion
 
     #region Funções Unity
-    private void Awake() => _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+    private void Awake()
+    {
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
+    }
 
     private void Start()
     {
@@ -79,6 +85,13 @@ public class LaserBehaviour : MonoBehaviour
         {
             foreach (var g in GuardBehaviour.Guards)
                 g.SetState(GuardBehaviour.GuardStates.Chase);
+
+            if (_canPlaySfx)
+            {
+                _canPlaySfx = false;
+                _audioManager.PlaySFX("chamando_guardas");
+                StartCoroutine(SetSfxInterval(3f));
+            }
         }
     }
     #endregion
@@ -169,6 +182,12 @@ public class LaserBehaviour : MonoBehaviour
         ChangeState(LaserState.On);
         canMove = true;
         transform.position = respawnPoint.position;
+    }
+
+    private IEnumerator SetSfxInterval(float interval)
+    {
+        yield return new WaitForSeconds(interval);
+        _canPlaySfx = true;
     }
     #endregion
 }

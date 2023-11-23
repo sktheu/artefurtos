@@ -20,7 +20,7 @@ public class PlayerGameOver : MonoBehaviour
     {
         _collisionLayersManager = GameObject.FindObjectOfType<CollisionLayersManager>();
         _levelManager = GameObject.FindObjectOfType<LevelManager>();
-        //_audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -41,7 +41,7 @@ public class PlayerGameOver : MonoBehaviour
             GameEnded = true;
 
             _rb.velocity = Vector2.zero;
-            //_audioManager.PlaySFX("game_over");
+            _audioManager.PlaySFX("game_over");
             _levelManager.Restart();
         }
     }
