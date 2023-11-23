@@ -39,7 +39,7 @@ public class BallBehaviour : MonoBehaviour
     #endregion
 
     #region Funções Próprias
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.layer != _collisionLayersManager.Player.Index)
         {
@@ -51,6 +51,7 @@ public class BallBehaviour : MonoBehaviour
             {
                 CheckGuards();
                 //_audioManager.PlaySFX("bola_colisao");
+                GetComponent<SpriteRenderer>().enabled = false;
                 Destroy(gameObject, 0.5f);
             }
         }

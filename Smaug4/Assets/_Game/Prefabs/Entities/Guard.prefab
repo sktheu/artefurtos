@@ -219,7 +219,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.37
   m_Color: {r: 0.990566, g: 0.9884692, b: 0.4999555, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.25
   m_LightVolumeIntensity: 0.18
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 65.454544
   m_PointLightOuterAngle: 109.09088
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.320883
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -892,9 +892,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 200
-  chaseSpeed: 600
-  checkSpeed: 800
-  alertSpeed: 800
+  chaseSpeed: 450
+  checkSpeed: 400
+  alertSpeed: 400
   acceleration: 1200
   initialState: 0
   curStateName: 
@@ -915,8 +915,8 @@ MonoBehaviour:
   - {fileID: 624516711718802544}
   fovParentTransform: {fileID: 1562467260575232645}
   hackingPlaceSprites:
-  - {fileID: 1528023734, guid: 9b833540b77a95747aade5c47d15a0fd, type: 3}
   - {fileID: 1523759139, guid: 61cd95b8e119a2f48a3c995b984f8306, type: 3}
+  - {fileID: 1528023734, guid: 9b833540b77a95747aade5c47d15a0fd, type: 3}
   - {fileID: 504882179, guid: 3a6672f5664944c4c909845ebdcbde02, type: 3}
   CheckPosition: {x: 0, y: 0, z: 0}
   IsInHackingPlace: 0
@@ -933,8 +933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxValue: 5
-  increment: 4.5
-  decrement: 2.5
+  increment: 10
+  decrement: 0.5
 --- !u!95 &319388181245081317
 Animator:
   serializedVersion: 5
@@ -1088,7 +1088,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.21663862}
+  m_Offset: {x: 0.040370226, y: -0.63619995}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1099,7 +1099,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.4332765}
+  m_Size: {x: 2.1618447, y: 2.2724009}
   m_EdgeRadius: 0
 --- !u!114 &4010306901743735928
 MonoBehaviour:
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.37
   m_Color: {r: 0.990566, g: 0.9884692, b: 0.4999555, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.25
   m_LightVolumeIntensity: 0.18
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 65.454544
   m_PointLightOuterAngle: 109.09088
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.320883
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.37
   m_Color: {r: 0.990566, g: 0.9884692, b: 0.4999555, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.25
   m_LightVolumeIntensity: 0.18
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 65.454544
   m_PointLightOuterAngle: 109.09088
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.320883
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1529,7 +1529,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.37
   m_Color: {r: 0.990566, g: 0.9884692, b: 0.4999555, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.25
   m_LightVolumeIntensity: 0.18
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 65.454544
   m_PointLightOuterAngle: 109.09088
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.320883
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

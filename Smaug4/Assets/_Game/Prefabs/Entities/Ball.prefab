@@ -163,4 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   rotateSpeed: 20
+  checkDistance: 15
   MoveDir: {x: 0, y: 0}

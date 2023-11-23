@@ -2576,6 +2576,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6955626697705229662, guid: 8973e8842ff721343b9e44f3107b3e2e, type: 3}
   m_PrefabInstance: {fileID: 1409070695}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &192017482 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4777376288767456774, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
+  m_PrefabInstance: {fileID: 2035104534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1825d07125459a744aa2c3afbe8ff015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &219612779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4838,7 +4849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &492533886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8309,9 +8320,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 192017482}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13656,7 +13667,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.5938057, g: 0.648395, b: 0.9056604, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -15590,6 +15601,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1590628600351187455, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777376288767456774, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422754877255105727, guid: 656700cf81950c748952d7becb2fbaa5, type: 3}
