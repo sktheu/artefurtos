@@ -21,6 +21,8 @@ public class PauseMenu : MonoBehaviour
 
     public static bool gamePaused = false;
 
+    public Canvas _countCanvas;
+
     public GameObject canvasMenu;
 
     public GameObject pauseMenu;
@@ -76,6 +78,7 @@ public class PauseMenu : MonoBehaviour
     #region Personal Functions
     public void Resume()
     {
+        AtivarCanvas();
         canvasMenu.SetActive(false);
         optionsMenuUI.SetActive(false);
         if (staminaCanvas != null) staminaCanvas.SetActive(true);
@@ -96,6 +99,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause()
     {
+        DesativarCanvas();
         canvasMenu.SetActive(true);
         pauseMenu.SetActive(true);
         if (staminaCanvas != null) staminaCanvas.SetActive(false);
@@ -130,5 +134,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         _levelManager.Restart();
     }
+
+    //Ativar e dasativar o Canvas da bola
+    public void DesativarCanvas()
+    {
+        _countCanvas.enabled = false;
+    }
+    public void AtivarCanvas()
+    {
+        _countCanvas.enabled = true;
+    }
+
     #endregion
 }
