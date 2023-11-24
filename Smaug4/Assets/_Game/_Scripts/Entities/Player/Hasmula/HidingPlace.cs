@@ -43,7 +43,7 @@ public class HidingPlace : MonoBehaviour
         _playerGameOver = player.GetComponent<PlayerGameOver>();
 
         //Posição que o player vai sair do objeto
-        _exitPosition = new Vector2(this.transform.position.x, this.transform.position.y - 0.76f);
+        _exitPosition = new Vector2(transform.position.x, transform.position.y - 0.76f);
     }
 
     void Update()
@@ -66,6 +66,7 @@ public class HidingPlace : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerColliding = true;
+            Debug.Log("FoiTrigger");
         }
     }
 
@@ -75,6 +76,7 @@ public class HidingPlace : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerColliding = false;
+            Debug.Log("SaiuTrigger");
         }
     }
     #endregion
@@ -105,7 +107,8 @@ public class HidingPlace : MonoBehaviour
 
     public void ShowPlayer()
     {
-        if (playerColliding == true && keyPressed == true && isHidden == true)
+        //if (playerColliding == true && keyPressed == true && isHidden == true)
+        if (keyPressed == true && isHidden == true)
         {
             _playerBoxCollider.enabled = true;
             _playerRenderer.enabled = true;
