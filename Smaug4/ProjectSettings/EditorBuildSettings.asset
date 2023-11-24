@@ -15,22 +15,22 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Menus/SelectionMenu.unity
     guid: 105ef99e7ca629443a2b2f9545b5d054
   - enabled: 1
-    path: Assets/_Game/Scenes/Cenas Fases/Level 1.unity
+    path: Assets/_Game/Scenes/Cenas Fases/Level 4.unity
     guid: b9efcccd6c9fd45a2a01dbcfd34a84e3
   - enabled: 1
-    path: Assets/_Game/Scenes/Cenas Fases/Level 2.unity
+    path: Assets/_Game/Scenes/Cenas Fases/Level 5.unity
     guid: e55af012c47c44363b5016e16b06260f
   - enabled: 1
-    path: Assets/_Game/Scenes/Cenas Fases/Level 3.unity
+    path: Assets/_Game/Scenes/Cenas Fases/Level 6.unity
     guid: 66022831c1ce347aeb63459947bfdc95
   - enabled: 1
-    path: Assets/_Game/Scenes/Cenas Fases/Level 4.unity
+    path: Assets/_Game/Scenes/Cenas Fases/Level 1.unity
     guid: 9bd681868bd6d4192a6e8d2e376d82ef
   - enabled: 1
-    path: Assets/_Game/Scenes/Cenas Fases/Level 5.unity
+    path: Assets/_Game/Scenes/Cenas Fases/Level 2.unity
     guid: a74faf88835134d32b9cc5b4b787db0b
   - enabled: 1
-    path: Assets/_Game/Scenes/Cenas Fases/Level 6.unity
+    path: Assets/_Game/Scenes/Cenas Fases/Level 3.unity
     guid: 5f32356c2b14b40d09b59f277a372649
   - enabled: 0
     path: Assets/_Game/Scenes/Cenas Fases/4.Esportes.unity
