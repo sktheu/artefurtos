@@ -155,7 +155,7 @@ MonoBehaviour:
   maxSpeed: 10
   acceleration: 5
   walkSpeed: 5
-  runSpeed: 20
+  runSpeed: 13
   isWalking: 1
   CanMove: 1
   _staminaSystem: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   maxStamina: 100
   hasStamina: 1
   isSprinting: 0
-  drain: 50
+  drain: 35
   regen: 10
   staminaProgressUI: {fileID: 0}
   sliderCanvasGroup: {fileID: 0}
@@ -198,6 +198,7 @@ MonoBehaviour:
   shootAnimController: {fileID: 9100000, guid: c543631f2ca4baa4eba2e9686b390157, type: 2}
   aimTexture: {fileID: 2800000, guid: dd2d53ba329f2f04b821132bb93092d2, type: 3}
   IsAiming: 0
+  _ballCurCount: 0
 --- !u!114 &91161995216302062
 MonoBehaviour:
   m_ObjectHideFlags: 0
