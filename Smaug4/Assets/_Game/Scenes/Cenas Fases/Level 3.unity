@@ -16779,6 +16779,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7129470411905437963, guid: 7ddcd2fd601e5084e93cb5d4ac97ebbf, type: 3}
+      propertyPath: isHasmula
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129470411905437963, guid: 7ddcd2fd601e5084e93cb5d4ac97ebbf, type: 3}
       propertyPath: _countCanvas
       value: 
       objectReference: {fileID: 302163492}
