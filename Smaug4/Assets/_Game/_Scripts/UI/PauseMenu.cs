@@ -21,6 +21,8 @@ public class PauseMenu : MonoBehaviour
 
     public static bool gamePaused = false;
 
+    public bool isHasmula = false;
+
     public Canvas _countCanvas;
 
     public GameObject canvasMenu;
@@ -78,7 +80,10 @@ public class PauseMenu : MonoBehaviour
     #region Personal Functions
     public void Resume()
     {
-        AtivarCanvas();
+        if (isHasmula)
+        {
+            AtivarCanvas();
+        }
         canvasMenu.SetActive(false);
         optionsMenuUI.SetActive(false);
         if (staminaCanvas != null) staminaCanvas.SetActive(true);
@@ -99,7 +104,10 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause()
     {
-        DesativarCanvas();
+        if (isHasmula)
+        {
+            DesativarCanvas();
+        }
         canvasMenu.SetActive(true);
         pauseMenu.SetActive(true);
         if (staminaCanvas != null) staminaCanvas.SetActive(false);
