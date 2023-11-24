@@ -42,21 +42,29 @@ public class FieldOfView : MonoBehaviour
     #region Funções Próprias
     private void Detecting()
     {
-        var dir = _target.position - transform.position;
-        var angle = Vector3.Angle(dir, _fovPoint.up);
-        var rayHit = Physics2D.Raycast(_fovPoint.position, dir, fovRange, ~ignoreLayers);
-
-        if (angle < fovAngle / 2)
+        if (!HidingPlace.isHidden)
         {
-            if (rayHit)
-            {
-                // Player Avistado
-                if (rayHit.collider.gameObject.layer == _collisionLayersManager.Player.Index)
-                {
-                    if (isCamera)
-                        _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Increase);
+            var dir = _target.position - transform.position;
+            var angle = Vector3.Angle(dir, _fovPoint.up);
+            var rayHit = Physics2D.Raycast(_fovPoint.position, dir, fovRange, ~ignoreLayers);
 
-                    Debug.DrawRay(_fovPoint.position, dir, Color.green);
+            if (angle < fovAngle / 2)
+            {
+                if (rayHit)
+                {
+                    // Player Avistado
+                    if (rayHit.collider.gameObject.layer == _collisionLayersManager.Player.Index)
+                    {
+                        if (isCamera)
+                            _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Increase);
+
+                        Debug.DrawRay(_fovPoint.position, dir, Color.green);
+                    }
+                    else
+                    {
+                        if (isCamera)
+                            _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Decrease);
+                    }
                 }
                 else
                 {
@@ -64,11 +72,11 @@ public class FieldOfView : MonoBehaviour
                         _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Decrease);
                 }
             }
-            else
-            {
-                if (isCamera)
-                    _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Decrease);
-            }
+        }
+        else
+        {
+            if (isCamera)
+                _cameraAlertScript.ChangeAlertProgress(CallGuards.AlertModifier.Decrease);
         }
     }
     #endregion

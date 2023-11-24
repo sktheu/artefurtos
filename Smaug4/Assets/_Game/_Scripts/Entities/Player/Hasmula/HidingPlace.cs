@@ -23,7 +23,7 @@ public class HidingPlace : MonoBehaviour
     private Animator _HPanimator;
     private PlayerGameOver _playerGameOver;
 
-    private Vector2 _exitPosition;
+    private static Vector2 _exitPosition;
     #endregion
 
     #region Unity Functions
@@ -41,9 +41,6 @@ public class HidingPlace : MonoBehaviour
         _animator = player.GetComponent<Animator>();
         _HPanimator = GetComponent<Animator>();
         _playerGameOver = player.GetComponent<PlayerGameOver>();
-
-        //Posição que o player vai sair do objeto
-        _exitPosition = new Vector2(transform.position.x, transform.position.y - 0.76f);
     }
 
     void Update()
@@ -58,6 +55,8 @@ public class HidingPlace : MonoBehaviour
 
         HidePlayer();
         ShowPlayer();
+
+        print(_exitPosition);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -66,6 +65,7 @@ public class HidingPlace : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerColliding = true;
+            _exitPosition = new Vector2(transform.position.x, transform.position.y - 0.76f);
             Debug.Log("FoiTrigger");
         }
     }
@@ -90,7 +90,7 @@ public class HidingPlace : MonoBehaviour
             foreach (var g in GuardBehaviour.Guards)
                 g.SetState(GuardBehaviour.GuardStates.Patrol);
 
-            _playerBoxCollider.enabled = false;
+            //_playerBoxCollider.enabled = false;
             _playerRenderer.enabled = false;
             isHidden = true;
             keyPressed = false;
@@ -107,10 +107,10 @@ public class HidingPlace : MonoBehaviour
 
     public void ShowPlayer()
     {
-        //if (playerColliding == true && keyPressed == true && isHidden == true)
-        if (keyPressed == true && isHidden == true)
+        if (playerColliding == true && keyPressed == true && isHidden == true)
+        //if (keyPressed == true && isHidden == true)
         {
-            _playerBoxCollider.enabled = true;
+            //_playerBoxCollider.enabled = true;
             _playerRenderer.enabled = true;
             isHidden = false;
             keyPressed = false;

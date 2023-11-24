@@ -20,7 +20,7 @@ public class GuardFieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (_viewPlayer)
+        if (!HidingPlace.isHidden && _viewPlayer)
             changeGuard.ChangeProgress(ChangeGuard.ProgressModifier.Increase);
         else
             changeGuard.ChangeProgress(ChangeGuard.ProgressModifier.Decrease);
