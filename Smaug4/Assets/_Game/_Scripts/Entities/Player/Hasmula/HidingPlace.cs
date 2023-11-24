@@ -55,8 +55,6 @@ public class HidingPlace : MonoBehaviour
 
         HidePlayer();
         ShowPlayer();
-
-        print(_exitPosition);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
