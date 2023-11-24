@@ -69,7 +69,7 @@ public class LevelSelector : MonoBehaviour
     private IEnumerator LoadOpenLevel(int levelId, float t)
     {
         yield return new WaitForSeconds(t);
-        string levelName = "testLevel " + levelId;
+        string levelName = "Level " + levelId;
         TransitionManager.Instance().Transition(levelName, transitionSettings[MainMenu.CurTransitionIndex],
             transitionDelay);
 
