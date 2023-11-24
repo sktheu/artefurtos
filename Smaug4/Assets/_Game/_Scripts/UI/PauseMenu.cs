@@ -127,7 +127,11 @@ public class PauseMenu : MonoBehaviour
             verifyAim = 0;*/
     }
 
-    public void LoadMenu() => Invoke("LoadSelectionMenu", 0.28f);
+    public void LoadMenu()
+    {
+        Invoke("LoadSelectionMenu", 0.28f);
+        Time.timeScale = 1f;
+    }
     
     private void LoadSelectionMenu()
     {
